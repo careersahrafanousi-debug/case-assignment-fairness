@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case Assignment Fairness and SLA Control Tower</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #0f1419;
+    --panel: #171d24;
+    --panel-2: #1e2630;
+    --line: #2a333f;
+    --text: #e6edf3;
+    --muted: #8b98a5;
+    --accent: #4c9aff;
+    --good: #35b77d;
+    --warn: #e0a33e;
+    --bad: #e05c5c;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  header {
+    padding: 28px 32px 22px; border-bottom: 1px solid var(--line);
+    background: linear-gradient(180deg, #131a21, var(--bg));
+  }
+  h1 { margin: 0 0 6px; font-size: 22px; letter-spacing: -0.2px; }
+  .sub { color: var(--muted); font-size: 13.5px; max-width: 900px; }
+  .synthetic {
+    display: inline-block; margin-top: 12px; padding: 5px 11px; border-radius: 4px;
+    background: rgba(76,154,255,.12); border: 1px solid rgba(76,154,255,.32);
+    color: #9dc4ff; font-size: 12px; font-weight: 500;
+  }
+  main { padding: 24px 32px 56px; max-width: 1560px; margin: 0 auto; }
+  .kpis {
+    display: grid; gap: 12px; margin-bottom: 26px;
+    grid-template-columns: repeat(auto-fit, minmax(178px, 1fr));
+  }
+  .kpi {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
+    padding: 15px 16px 14px;
+  }
+  .kpi .label {
+    color: var(--muted); font-size: 11.5px; text-transform: uppercase;
+    letter-spacing: .07em; font-weight: 600; margin-bottom: 9px;
+  }
+  .kpi .value { font-size: 27px; font-weight: 650; letter-spacing: -0.5px; line-height: 1.1; }
+  .kpi .note { color: var(--muted); font-size: 12px; margin-top: 6px; }
+  .kpi.good .value { color: var(--good); }
+  .kpi.warn .value { color: var(--warn); }
+  .kpi.bad  .value { color: var(--bad); }
+  .grid { display: grid; gap: 16px; grid-template-columns: repeat(12, 1fr); }
+  .card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
+    padding: 17px 18px 14px; min-width: 0;
+  }
+  .card.w4 { grid-column: span 4; }
+  .card.w6 { grid-column: span 6; }
+  .card.w8 { grid-column: span 8; }
+  .card.w12 { grid-column: span 12; }
+  @media (max-width: 1080px) { .card.w4, .card.w6, .card.w8 { grid-column: span 12; } }
+  .card h2 { margin: 0 0 3px; font-size: 14.5px; font-weight: 620; }
+  .card .desc { color: var(--muted); font-size: 12.5px; margin: 0 0 14px; }
+  .chart-wrap { position: relative; height: 290px; }
+  .chart-wrap.tall { height: 380px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--line); }
+  th {
+    color: var(--muted); font-size: 11.5px; text-transform: uppercase;
+    letter-spacing: .05em; font-weight: 600; white-space: nowrap;
+  }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tbody tr:hover { background: var(--panel-2); }
+  .scroll { max-height: 430px; overflow-y: auto; }
+  .pill { padding: 2px 8px; border-radius: 10px; font-size: 11.5px; font-weight: 600; }
+  .pill.good { background: rgba(53,183,125,.15); color: var(--good); }
+  .pill.warn { background: rgba(224,163,62,.15); color: var(--warn); }
+  .pill.bad  { background: rgba(224,92,92,.15);  color: var(--bad); }
+  footer {
+    border-top: 1px solid var(--line); padding: 22px 32px 40px;
+    color: var(--muted); font-size: 12.5px; max-width: 1560px; margin: 0 auto;
+  }
+  footer p { margin: 0 0 9px; max-width: 900px; }
+  footer code {
+    background: var(--panel-2); padding: 1.5px 5px; border-radius: 3px;
+    font-size: 12px; color: #b9c6d3;
+  }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Case Assignment Fairness and SLA Control Tower</h1>
+  <p class="sub">ClearPath Case Services (fictional) · 15,908 cases · 2 January to 30 June 2026. Leadership asked which team was underperforming. Workload per analyst hour is near-equal across all five teams, yet SLA compliance ranges from 26% to 84%. The cause is a target and a routing method, not a team.</p>
+  <div class="synthetic">Fully synthetic data &middot; no employer, patient or confidential information</div>
+</header>
+<main>
+  <div class="kpis" id="kpis"></div>
+  <div class="grid" id="grid"></div>
+</main>
+<footer>
+  <p><strong>How this page is built.</strong> Every value comes from a SQL query stored in
+  <code>dashboard/dashboard_config.json</code> and run against <code>data/cases.db</code> by
+  <code>src/build_dashboard.py</code>. Nothing is typed in by hand, so the dashboard cannot
+  drift away from the analysis in <code>sql/</code>. Rebuild with
+  <code>python src/load_sqlite.py &amp;&amp; python src/build_dashboard.py</code>.</p>
+  <p><strong>Limitations.</strong> Reassignment is treated as a routing failure, which overstates it because no reason code separates misroutes from legitimate escalations. SLA is measured in elapsed clock hours, not business hours, because the source has no business calendar. The complexity score weights are analyst judgement and were not fitted to outcomes. The data is fully synthetic, so the relationships shown here were built into the generator — what transfers is the method, not the conclusion.</p>
+  <p>Source: synthetic data generated by src/generate_data.py, seed 8821. No employer data, patient information, protected health information or confidential business information is used. Analyst performance is reported by tenure band only, never by individual.</p>
+</footer>
+<script>
+const DATA = {"headline":[{"total_cases":15908,"resolved":15714,"open_cases":194,"sla_pct":62.7,"accuracy_pct":73.1,"reopen_pct":6.47,"avg_hours":52.7,"breach_hours":180810.0}],"dq":[{"exceptions":577,"excluded":92,"dq_score":99.43}],"by_case_type":[{"Case_Type":"Authorization Review","target_hours":48,"cases":2193,"sla_pct":26.37,"avg_hours":79.0,"breach_hours":73906.0},{"Case_Type":"Enrollment Change","target_hours":24,"cases":2843,"sla_pct":44.69,"avg_hours":30.9,"breach_hours":28808.0},{"Case_Type":"Claims Dispute","target_hours":72,"cases":3064,"sla_pct":65.86,"avg_hours":66.2,"breach_hours":34911.0},{"Case_Type":"Benefits Inquiry","target_hours":48,"cases":3810,"sla_pct":73.59,"avg_hours":39.4,"breach_hours":21608.0},{"Case_Type":"Coverage Termination","target_hours":96,"cases":1417,"sla_pct":74.62,"avg_hours":76.4,"breach_hours":13387.0},{"Case_Type":"Billing Correction","target_hours":72,"cases":2581,"sla_pct":86.89,"avg_hours":45.1,"breach_hours":8190.0}],"teams":[{"Team_ID":"TEAM-04","Primary_Capability":"Authorization","Analyst_Count":5,"Cases_Handled":2303,"avg_complexity":44.9,"Workload_Balance_Index":1.099,"Balance_Status":"Balanced","SLA_Compliance_Pct":25.88,"Assignment_Accuracy_Pct":73.81,"Median_Resolution_Hours":71.0},{"Team_ID":"TEAM-03","Primary_Capability":"Enrollment","Analyst_Count":6,"Cases_Handled":2912,"avg_complexity":33.8,"Workload_Balance_Index":0.871,"Balance_Status":"Balanced","SLA_Compliance_Pct":49.02,"Assignment_Accuracy_Pct":73.0,"Median_Resolution_Hours":27.5},{"Team_ID":"TEAM-02","Primary_Capability":"Claims","Analyst_Count":7,"Cases_Handled":3068,"avg_complexity":48.3,"Workload_Balance_Index":1.125,"Balance_Status":"Balanced","SLA_Compliance_Pct":65.73,"Assignment_Accuracy_Pct":72.76,"Median_Resolution_Hours":54.8},{"Team_ID":"TEAM-01","Primary_Capability":"Benefits","Analyst_Count":9,"Cases_Handled":4965,"avg_complexity":40.6,"Workload_Balance_Index":1.19,"Balance_Status":"Overloaded","SLA_Compliance_Pct":74.29,"Assignment_Accuracy_Pct":73.51,"Median_Resolution_Hours":39.3},{"Team_ID":"TEAM-05","Primary_Capability":"Billing","Analyst_Count":8,"Cases_Handled":2660,"avg_complexity":40.4,"Workload_Balance_Index":0.715,"Balance_Status":"Underutilized","SLA_Compliance_Pct":84.19,"Assignment_Accuracy_Pct":72.22,"Median_Resolution_Hours":38.5}],"routing":[{"Routing_Method":"Manual Triage","cases":4664,"accuracy_pct":83.83,"lag_hours":3.47,"reopen_pct":5.53},{"Routing_Method":"Analyst Self-Select","cases":1947,"accuracy_pct":77.69,"lag_hours":6.0,"reopen_pct":6.16},{"Routing_Method":"Auto-Routed","cases":9297,"accuracy_pct":66.77,"lag_hours":1.24,"reopen_pct":7.0}],"reassign_cost":[{"reassignments":0,"cases":11620,"avg_hours":46.3,"sla_pct":70.33,"reopen_pct":4.41},{"reassignments":1,"cases":3705,"avg_hours":67.1,"sla_pct":44.18,"reopen_pct":12.15},{"reassignments":2,"cases":533,"avg_hours":88.4,"sla_pct":27.06,"reopen_pct":11.82},{"reassignments":3,"cases":34,"avg_hours":110.6,"sla_pct":12.9,"reopen_pct":8.82}],"complexity":[{"Complexity_Band":"Low","cases":3790,"sla_pct":68.58,"reassigned_pct":24.03},{"Complexity_Band":"Moderate","cases":9030,"sla_pct":62.69,"reassigned_pct":26.73},{"Complexity_Band":"High","cases":2771,"sla_pct":56.07,"reassigned_pct":30.48},{"Complexity_Band":"Critical","cases":317,"sla_pct":50.0,"reassigned_pct":34.7}],"equity_scatter":[{"Team_ID":"TEAM-01","wbi":1.19,"sla_pct":74.29},{"Team_ID":"TEAM-02","wbi":1.125,"sla_pct":65.73},{"Team_ID":"TEAM-03","wbi":0.871,"sla_pct":49.02},{"Team_ID":"TEAM-04","wbi":1.099,"sla_pct":25.88},{"Team_ID":"TEAM-05","wbi":0.715,"sla_pct":84.19}],"backlog":[{"Team_ID":"TEAM-04","backlog_days":8.74},{"Team_ID":"TEAM-02","backlog_days":8.48},{"Team_ID":"TEAM-01","backlog_days":6.91},{"Team_ID":"TEAM-05","backlog_days":3.27},{"Team_ID":"TEAM-03","backlog_days":2.65}],"root_cause":[{"Root_Cause":"Missing documentation","cases":4090,"avg_hours":59.5,"reopen_pct":6.6},{"Root_Cause":"Policy exception required","cases":2463,"avg_hours":56.5,"reopen_pct":6.37},{"Root_Cause":"Incorrect initial routing","cases":2282,"avg_hours":56.1,"reopen_pct":8.41},{"Root_Cause":"System data gap","cases":1843,"avg_hours":45.4,"reopen_pct":5.81},{"Root_Cause":"No issue identified","cases":1817,"avg_hours":45.7,"reopen_pct":6.16},{"Root_Cause":"External party delay","cases":1746,"avg_hours":46.6,"reopen_pct":5.56},{"Root_Cause":"Complex eligibility","cases":1333,"avg_hours":46.2,"reopen_pct":6.38},{"Root_Cause":"Not Recorded","cases":140,"avg_hours":51.3,"reopen_pct":6.43}],"monthly":[{"month":"2026-01","cases":2646,"sla_pct":62.24,"accuracy_pct":71.89},{"month":"2026-02","cases":2467,"sla_pct":63.88,"accuracy_pct":74.09},{"month":"2026-03","cases":2694,"sla_pct":61.43,"accuracy_pct":73.82},{"month":"2026-04","cases":2650,"sla_pct":62.49,"accuracy_pct":73.38},{"month":"2026-05","cases":2764,"sla_pct":62.95,"accuracy_pct":72.96},{"month":"2026-06","cases":2687,"sla_pct":63.3,"accuracy_pct":72.53}],"tenure":[{"tenure":"0-1 yr","cases":2612,"sla_pct":57.6},{"tenure":"1-3 yr","cases":8044,"sla_pct":62.35},{"tenure":"3+ yr","cases":5252,"sla_pct":65.75}],"segment":[{"segment":"Enterprise","cases":2799,"sla_pct":62.0},{"segment":"Small Group","cases":5485,"sla_pct":62.19},{"segment":"Mid-Market","cases":4272,"sla_pct":63.31},{"segment":"Individual","cases":3352,"sla_pct":63.32}],"queue":[{"Case_ID":"CS-2026-011720","Case_Type":"Coverage Termination","Priority":"Low","Assigned_Team":"TEAM-01","Complexity_Band":"High","Current_Status":"In Progress","past_target":111.8},{"Case_ID":"CS-2026-002359","Case_Type":"Authorization Review","Priority":"Standard","Assigned_Team":"TEAM-04","Complexity_Band":"High","Current_Status":"In Progress","past_target":89.0},{"Case_ID":"CS-2026-013003","Case_Type":"Authorization Review","Priority":"Low","Assigned_Team":"TEAM-04","Complexity_Band":"Moderate","Current_Status":"In Progress","past_target":88.3},{"Case_ID":"CS-2026-008297","Case_Type":"Authorization Review","Priority":"Low","Assigned_Team":"TEAM-04","Complexity_Band":"Moderate","Current_Status":"Pending Information","past_target":78.8},{"Case_ID":"CS-2026-000782","Case_Type":"Authorization Review","Priority":"Low","Assigned_Team":"TEAM-04","Complexity_Band":"Moderate","Current_Status":"Pending Information","past_target":63.2},{"Case_ID":"CS-2026-000439","Case_Type":"Claims Dispute","Priority":"Standard","Assigned_Team":"TEAM-02","Complexity_Band":"High","Current_Status":"In Progress","past_target":60.5},{"Case_ID":"CS-2026-007810","Case_Type":"Authorization Review","Priority":"Low","Assigned_Team":"TEAM-04","Complexity_Band":"Moderate","Current_Status":"In Progress","past_target":54.8},{"Case_ID":"CS-2026-009587","Case_Type":"Claims Dispute","Priority":"Standard","Assigned_Team":"TEAM-02","Complexity_Band":"High","Current_Status":"In Progress","past_target":37.0},{"Case_ID":"CS-2026-007265","Case_Type":"Claims Dispute","Priority":"Low","Assigned_Team":"TEAM-04","Complexity_Band":"Moderate","Current_Status":"In Progress","past_target":33.5},{"Case_ID":"CS-2026-004087","Case_Type":"Benefits Inquiry","Priority":"Low","Assigned_Team":"TEAM-01","Complexity_Band":"Moderate","Current_Status":"In Progress","past_target":31.3},{"Case_ID":"CS-2026-001596","Case_Type":"Authorization Review","Priority":"Standard","Assigned_Team":"TEAM-04","Complexity_Band":"Moderate","Current_Status":"In Progress","past_target":30.2},{"Case_ID":"CS-2026-000096","Case_Type":"Authorization Review","Priority":"Standard","Assigned_Team":"TEAM-04","Complexity_Band":"Moderate","Current_Status":"In Progress","past_target":30.2},{"Case_ID":"CS-2026-014354","Case_Type":"Authorization Review","Priority":"High","Assigned_Team":"TEAM-01","Complexity_Band":"Moderate","Current_Status":"In Progress","past_target":15.8},{"Case_ID":"CS-2026-002352","Case_Type":"Billing Correction","Priority":"Standard","Assigned_Team":"TEAM-05","Complexity_Band":"Low","Current_Status":"In Progress","past_target":13.3},{"Case_ID":"CS-2026-009736","Case_Type":"Claims Dispute","Priority":"Low","Assigned_Team":"TEAM-02","Complexity_Band":"Moderate","Current_Status":"In Progress","past_target":12.5},{"Case_ID":"CS-2026-015933","Case_Type":"Claims Dispute","Priority":"Standard","Assigned_Team":"TEAM-02","Complexity_Band":"High","Current_Status":"Pending Information","past_target":10.5},{"Case_ID":"CS-2026-013857","Case_Type":"Authorization Review","Priority":"Low","Assigned_Team":"TEAM-01","Complexity_Band":"Moderate","Current_Status":"Pending Information","past_target":10.5},{"Case_ID":"CS-2026-004657","Case_Type":"Coverage Termination","Priority":"Standard","Assigned_Team":"TEAM-01","Complexity_Band":"High","Current_Status":"In Progress","past_target":9.2},{"Case_ID":"CS-2026-006408","Case_Type":"Claims Dispute","Priority":"Standard","Assigned_Team":"TEAM-02","Complexity_Band":"High","Current_Status":"In Progress","past_target":8.3},{"Case_ID":"CS-2026-012509","Case_Type":"Billing Correction","Priority":"Low","Assigned_Team":"TEAM-05","Complexity_Band":"High","Current_Status":"In Progress","past_target":7.0},{"Case_ID":"CS-2026-003831","Case_Type":"Authorization Review","Priority":"Low","Assigned_Team":"TEAM-04","Complexity_Band":"High","Current_Status":"In Progress","past_target":-7.0},{"Case_ID":"CS-2026-005577","Case_Type":"Authorization Review","Priority":"Standard","Assigned_Team":"TEAM-04","Complexity_Band":"Moderate","Current_Status":"In Progress","past_target":-7.3},{"Case_ID":"CS-2026-000224","Case_Type":"Enrollment Change","Priority":"Standard","Assigned_Team":"TEAM-03","Complexity_Band":"High","Current_Status":"In Progress","past_target":-8.5},{"Case_ID":"CS-2026-005484","Case_Type":"Authorization Review","Priority":"Standard","Assigned_Team":"TEAM-04","Complexity_Band":"Critical","Current_Status":"Pending Information","past_target":-8.8},{"Case_ID":"CS-2026-008838","Case_Type":"Enrollment Change","Priority":"Standard","Assigned_Team":"TEAM-03","Complexity_Band":"Low","Current_Status":"In Progress","past_target":-9.8}],"exceptions":[{"Rule_ID":"DQ-13","Severity":"Low","Action_Taken":"Normalized, record retained","exceptions":158},{"Rule_ID":"DQ-14","Severity":"Medium","Action_Taken":"Set to Not Recorded","exceptions":140},{"Rule_ID":"DQ-02","Severity":"Low","Action_Taken":"Normalized, record retained","exceptions":120},{"Rule_ID":"DQ-01","Severity":"High","Action_Taken":"First occurrence retained","exceptions":55},{"Rule_ID":"DQ-07","Severity":"Critical","Action_Taken":"Excluded from reporting","exceptions":34},{"Rule_ID":"DQ-06","Severity":"Critical","Action_Taken":"Excluded from reporting","exceptions":26},{"Rule_ID":"DQ-09","Severity":"Critical","Action_Taken":"Excluded from reporting","exceptions":17},{"Rule_ID":"DQ-03","Severity":"Critical","Action_Taken":"Excluded from reporting","exceptions":15},{"Rule_ID":"DQ-12","Severity":"High","Action_Taken":"Set to null; excluded from routing accuracy","exceptions":12}]};
+const SPEC = {"kpis":[{"label":"Cases","query":"headline","field":"total_cases"},{"label":"SLA compliance","query":"headline","field":"sla_pct","unit":"pct","tone":"bad","note":"Flat 61\u201364% for six months"},{"label":"Assignment accuracy","query":"headline","field":"accuracy_pct","unit":"pct","tone":"warn","note":"26.9% reassigned at least once"},{"label":"Reopen rate","query":"headline","field":"reopen_pct","unit":"pct","tone":"warn","note":"12.15% once reassigned"},{"label":"Avg resolution","query":"headline","field":"avg_hours","unit":"hours","note":"Median 43.0h"},{"label":"Total breach hours","query":"headline","field":"breach_hours","unit":"hours","tone":"bad","note":"41% from one case type"},{"label":"Open cases","query":"headline","field":"open_cases","note":"20 already past target"},{"label":"Data quality score","query":"dq","field":"dq_score","unit":"pct","tone":"good","note":"92 records excluded and logged"}],"cards":[{"title":"SLA compliance by case type, against its own target","desc":"The dashed line is the blended 62.70% figure reported to clients. Two case types sit far below it, and they are the only two whose average resolution time exceeds their own target.","type":"bar","width":8,"query":"by_case_type","label_field":"Case_Type","rotate":30,"series":[{"label":"SLA compliance %","field":"sla_pct","colour":"accent"}],"reference":{"value":62.7,"label":"Blended 62.70%"}},{"title":"Where the lateness actually is","desc":"Total breach hours by case type. Authorization Review is 41% of all lateness from 14% of cases.","type":"doughnut","width":4,"query":"by_case_type","label_field":"Case_Type","series":[{"label":"Breach hours","field":"breach_hours"}]},{"title":"Average resolution time vs the published target","desc":"Authorization Review takes 79.0 hours against a 48-hour target. Enrollment Change takes 30.9 against 24. No amount of coaching closes a target set below the time the work takes.","type":"bar","width":8,"query":"by_case_type","label_field":"Case_Type","rotate":30,"series":[{"label":"Avg resolution hours","field":"avg_hours","colour":"bad"},{"label":"SLA target hours","field":"target_hours","colour":"muted"}]},{"title":"Workload balance vs outcome","desc":"One point per team. If workload explained the SLA spread these would form a line. They do not.","type":"scatter","width":4,"query":"equity_scatter","label_field":"Team_ID","x":"wbi","y":"sla_pct","x_title":"Workload Balance Index","y_title":"SLA compliance %"},{"title":"Team equity \u2014 the index alongside the outcomes","desc":"The only team flagged Overloaded has the second-best SLA. The worst SLA sits inside the Balanced band. Assignment accuracy varies by just 1.6 points across all five teams, so this is not analyst skill.","type":"table","width":12,"query":"teams","scroll":false,"pillMap":{"Overloaded":"bad","Balanced":"good","Underutilized":"warn"},"columns":[{"label":"Team","field":"Team_ID"},{"label":"Capability","field":"Primary_Capability"},{"label":"Analysts","field":"Analyst_Count","numeric":true},{"label":"Cases","field":"Cases_Handled","numeric":true},{"label":"Avg complexity","field":"avg_complexity","numeric":true},{"label":"Balance index","field":"Workload_Balance_Index","numeric":true},{"label":"Status","field":"Balance_Status","pill":true},{"label":"SLA %","field":"SLA_Compliance_Pct","unit":"pct"},{"label":"Accuracy %","field":"Assignment_Accuracy_Pct","unit":"pct"},{"label":"Median hours","field":"Median_Resolution_Hours","unit":"hours"}]},{"title":"Routing accuracy by method","desc":"Auto-routing carries 58% of volume at the worst accuracy. Manual triage is 17.1 points better and reopens less, paying only 2.2 extra hours of assignment lag for it.","type":"bar","width":6,"query":"routing","label_field":"Routing_Method","series":[{"label":"Assignment accuracy %","field":"accuracy_pct","colour":"accent"},{"label":"Reopen %","field":"reopen_pct","colour":"bad"},{"label":"Assignment lag (hours)","field":"lag_hours","colour":"warn"}]},{"title":"What a reassignment costs","desc":"One reassignment adds 20.8 hours, drops SLA compliance 26 points and nearly triples the reopen rate. Bars are case counts on the right axis.","type":"bar","width":6,"query":"reassign_cost","label_field":"reassignments","y_title":"Percent","y1_title":"Cases","series":[{"label":"Cases","field":"cases","colour":"muted","axis":"right"},{"label":"SLA compliance %","field":"sla_pct","as":"line","colour":"good"},{"label":"Reopen %","field":"reopen_pct","as":"line","colour":"bad"}]},{"title":"Does the complexity score predict anything?","desc":"Monotonic in the right direction across all four bands, which is the most that can be claimed for weights assigned by judgement rather than fitted to outcomes. The gradient is too shallow to use as a routing rule on its own.","type":"bar","width":6,"query":"complexity","label_field":"Complexity_Band","series":[{"label":"SLA compliance %","field":"sla_pct","colour":"good"},{"label":"Reassigned at least once %","field":"reassigned_pct","colour":"bad"}]},{"title":"Backlog days of work","desc":"Backlog work hours divided by available hours. This is the queue-time dimension the Workload Balance Index misses, and it is where TEAM-04's problem becomes visible.","type":"hbar","width":6,"query":"backlog","label_field":"Team_ID","series":[{"label":"Days of queued work","field":"backlog_days","colour":"warn"}]},{"title":"Root cause of resolved cases","desc":"Missing documentation is the largest single cause at 26.0% of resolved volume. It is found after assignment, when the case is already on the clock.","type":"hbar","width":6,"query":"root_cause","label_field":"Root_Cause","tall":true,"series":[{"label":"Cases","field":"cases","colour":"accent"}]},{"title":"Monthly trend","desc":"Six flat months. Two coaching cycles were spent in this window with no visible effect, which is the evidence that the intervention was aimed at the wrong thing.","type":"line","width":6,"query":"monthly","label_field":"month","beginAtZero":false,"series":[{"label":"SLA compliance %","field":"sla_pct","colour":"accent"},{"label":"Assignment accuracy %","field":"accuracy_pct","colour":"good"}]},{"title":"Tenure effect \u2014 real but small","desc":"An 8.2 point gap between newest and most experienced analysts. Worth onboarding attention; nowhere near enough to explain a 58 point team gap.","type":"bar","width":6,"query":"tenure","label_field":"tenure","beginAtZero":false,"series":[{"label":"SLA compliance %","field":"sla_pct","colour":"accent"}]},{"title":"Segment equity \u2014 a null finding, reported anyway","desc":"Tested for favouritism toward larger clients and found none: a 1.3 point spread across four segments on materially identical average complexity.","type":"bar","width":6,"query":"segment","label_field":"segment","beginAtZero":false,"series":[{"label":"SLA compliance %","field":"sla_pct","colour":"muted"}]},{"title":"Priority queue \u2014 open cases ranked for action","desc":"Sorted by hours past target, then complexity. Deliberately not sorted by priority, which would bury a Low-priority case 112 hours late beneath an Urgent case with headroom left.","type":"table","width":6,"query":"queue","pillMap":{"Critical":"bad","High":"warn","Moderate":"good","Low":"good"},"columns":[{"label":"Case","field":"Case_ID"},{"label":"Type","field":"Case_Type"},{"label":"Priority","field":"Priority"},{"label":"Team","field":"Assigned_Team"},{"label":"Complexity","field":"Complexity_Band","pill":true},{"label":"Hours past target","field":"past_target","unit":"hours"}]},{"title":"Data quality exception log","desc":"Every rule violation, its severity and what was done about it. Critical failures are excluded and logged, never silently corrected \u2014 34 cases marked Resolved with no resolution date could not be given a date without fabricating the SLA outcome being measured.","type":"table","width":6,"query":"exceptions","pillMap":{"Critical":"bad","High":"warn","Medium":"warn","Low":"good"},"columns":[{"label":"Rule","field":"Rule_ID"},{"label":"Severity","field":"Severity","pill":true},{"label":"Action taken","field":"Action_Taken"},{"label":"Count","field":"exceptions","numeric":true}]}]};
+
+const FONT = getComputedStyle(document.body).fontFamily;
+Chart.defaults.font.family = FONT;
+Chart.defaults.font.size = 12;
+Chart.defaults.color = '#8b98a5';
+Chart.defaults.borderColor = '#2a333f';
+Chart.defaults.plugins.legend.labels.boxWidth = 11;
+Chart.defaults.plugins.legend.labels.usePointStyle = true;
+Chart.defaults.maintainAspectRatio = false;
+
+const PALETTE = ['#4c9aff','#35b77d','#e0a33e','#e05c5c','#a77bde','#3fb8c4','#d98ab8','#8b98a5'];
+const SEMANTIC = { good:'#35b77d', warn:'#e0a33e', bad:'#e05c5c', accent:'#4c9aff', muted:'#8b98a5' };
+
+function colourFor(i, spec) {
+  if (spec && spec.colour) return SEMANTIC[spec.colour] || spec.colour;
+  return PALETTE[i % PALETTE.length];
+}
+
+function fmt(v, unit) {
+  if (v === null || v === undefined) return '\u2014';
+  if (typeof v !== 'number') return v;
+  let s = Number.isInteger(v) ? v.toLocaleString() : v.toLocaleString(undefined, {maximumFractionDigits: 2});
+  if (unit === 'pct') s += '%';
+  if (unit === 'usd') s = '$' + Math.round(v).toLocaleString();
+  if (unit === 'hours') s += 'h';
+  if (unit === 'days') s += 'd';
+  return s;
+}
+
+// KPI cards
+const kpiHost = document.getElementById('kpis');
+for (const k of SPEC.kpis) {
+  const row = DATA[k.query][0];
+  const el = document.createElement('div');
+  el.className = 'kpi' + (k.tone ? ' ' + k.tone : '');
+  el.innerHTML = '<div class="label"></div><div class="value"></div>' + (k.note ? '<div class="note"></div>' : '');
+  el.querySelector('.label').textContent = k.label;
+  el.querySelector('.value').textContent = fmt(row[k.field], k.unit);
+  if (k.note) el.querySelector('.note').textContent = k.note;
+  kpiHost.appendChild(el);
+}
+
+// Cards
+const grid = document.getElementById('grid');
+for (const card of SPEC.cards) {
+  const rows = DATA[card.query];
+  const el = document.createElement('div');
+  el.className = 'card w' + (card.width || 6);
+  const h = document.createElement('h2'); h.textContent = card.title; el.appendChild(h);
+  if (card.desc) { const d = document.createElement('p'); d.className = 'desc'; d.textContent = card.desc; el.appendChild(d); }
+
+  if (card.type === 'table') {
+    const wrap = document.createElement('div');
+    wrap.className = card.scroll === false ? '' : 'scroll';
+    const t = document.createElement('table');
+    const thead = document.createElement('thead');
+    const htr = document.createElement('tr');
+    for (const c of card.columns) {
+      const th = document.createElement('th');
+      th.textContent = c.label;
+      if (c.unit || c.numeric) th.className = 'num';
+      htr.appendChild(th);
+    }
+    thead.appendChild(htr); t.appendChild(thead);
+    const tb = document.createElement('tbody');
+    for (const r of rows) {
+      const tr = document.createElement('tr');
+      for (const c of card.columns) {
+        const td = document.createElement('td');
+        if (c.unit || c.numeric) td.className = 'num';
+        if (c.pill) {
+          const sp = document.createElement('span');
+          sp.className = 'pill ' + (card.pillMap && card.pillMap[r[c.field]] ? card.pillMap[r[c.field]] : 'warn');
+          sp.textContent = r[c.field];
+          td.appendChild(sp);
+        } else {
+          td.textContent = fmt(r[c.field], c.unit);
+        }
+        tr.appendChild(td);
+      }
+      tb.appendChild(tr);
+    }
+    t.appendChild(tb); wrap.appendChild(t); el.appendChild(wrap);
+    grid.appendChild(el);
+    continue;
+  }
+
+  const wrap = document.createElement('div');
+  wrap.className = 'chart-wrap' + (card.tall ? ' tall' : '');
+  const cv = document.createElement('canvas');
+  wrap.appendChild(cv); el.appendChild(wrap); grid.appendChild(el);
+
+  const labels = rows.map(r => r[card.label_field]);
+  let cfg;
+
+  if (card.type === 'scatter') {
+    cfg = {
+      type: 'scatter',
+      data: { datasets: rows.map((r, i) => ({
+        label: String(r[card.label_field]),
+        data: [{x: r[card.x], y: r[card.y]}],
+        backgroundColor: PALETTE[i % PALETTE.length],
+        pointRadius: 8, pointHoverRadius: 10
+      })) },
+      options: {
+        scales: {
+          x: { title: {display: true, text: card.x_title}, grid: {color: '#222a34'} },
+          y: { title: {display: true, text: card.y_title}, grid: {color: '#222a34'} }
+        }
+      }
+    };
+  } else if (card.type === 'doughnut') {
+    cfg = {
+      type: 'doughnut',
+      data: { labels, datasets: [{
+        data: rows.map(r => r[card.series[0].field]),
+        backgroundColor: PALETTE, borderColor: '#171d24', borderWidth: 2
+      }] },
+      options: { cutout: '58%', plugins: { legend: { position: 'right' } } }
+    };
+  } else {
+    const horizontal = card.type === 'hbar';
+    cfg = {
+      type: card.type === 'line' ? 'line' : 'bar',
+      data: { labels, datasets: card.series.map((s, i) => ({
+        label: s.label,
+        data: rows.map(r => r[s.field]),
+        type: s.as === 'line' ? 'line' : undefined,
+        backgroundColor: colourFor(i, s),
+        borderColor: colourFor(i, s),
+        borderWidth: s.as === 'line' || card.type === 'line' ? 2 : 0,
+        borderRadius: s.as === 'line' || card.type === 'line' ? 0 : 3,
+        tension: 0.28,
+        pointRadius: 3,
+        fill: false,
+        yAxisID: s.axis === 'right' ? 'y1' : 'y',
+        order: s.as === 'line' ? 0 : 1
+      })) },
+      options: {
+        indexAxis: horizontal ? 'y' : 'x',
+        plugins: { legend: { display: card.series.length > 1 } },
+        scales: {
+          x: { grid: { color: horizontal ? '#222a34' : 'transparent' },
+               ticks: { autoSkip: false, maxRotation: card.rotate || 0 },
+               stacked: !!card.stacked },
+          y: { grid: { color: horizontal ? 'transparent' : '#222a34' },
+               beginAtZero: card.beginAtZero !== false,
+               stacked: !!card.stacked,
+               title: card.y_title ? {display: true, text: card.y_title} : undefined },
+          ...(card.series.some(s => s.axis === 'right') ? { y1: {
+            position: 'right', grid: {drawOnChartArea: false}, beginAtZero: true,
+            title: card.y1_title ? {display: true, text: card.y1_title} : undefined
+          } } : {})
+        }
+      }
+    };
+  }
+
+  if (card.reference) {
+    const v = card.reference.value;
+    cfg.options.plugins = cfg.options.plugins || {};
+    const label = card.reference.label;
+    cfg.plugins = [{
+      id: 'refline-' + card.title,
+      afterDraw(chart) {
+        const {ctx, chartArea, scales} = chart;
+        const horizontal = card.type === 'hbar';
+        const sc = horizontal ? scales.x : scales.y;
+        const p = sc.getPixelForValue(v);
+        ctx.save();
+        ctx.strokeStyle = '#e0a33e'; ctx.setLineDash([5, 4]); ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        if (horizontal) { ctx.moveTo(p, chartArea.top); ctx.lineTo(p, chartArea.bottom); }
+        else { ctx.moveTo(chartArea.left, p); ctx.lineTo(chartArea.right, p); }
+        ctx.stroke();
+        ctx.setLineDash([]); ctx.fillStyle = '#e0a33e'; ctx.font = '600 11px ' + FONT;
+        if (horizontal) { ctx.textAlign = 'center'; ctx.fillText(label, p, chartArea.top - 4); }
+        else { ctx.textAlign = 'right'; ctx.fillText(label, chartArea.right - 2, p - 5); }
+        ctx.restore();
+      }
+    }];
+  }
+
+  new Chart(cv, cfg);
+}
+</script>
+</body>
+</html>

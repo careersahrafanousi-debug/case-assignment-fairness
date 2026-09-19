@@ -1,0 +1,671 @@
+{
+ "headline": [
+  {
+   "total_cases": 15908,
+   "resolved": 15714,
+   "open_cases": 194,
+   "sla_pct": 62.7,
+   "accuracy_pct": 73.1,
+   "reopen_pct": 6.47,
+   "avg_hours": 52.7,
+   "breach_hours": 180810.0
+  }
+ ],
+ "dq": [
+  {
+   "exceptions": 577,
+   "excluded": 92,
+   "dq_score": 99.43
+  }
+ ],
+ "by_case_type": [
+  {
+   "Case_Type": "Authorization Review",
+   "target_hours": 48,
+   "cases": 2193,
+   "sla_pct": 26.37,
+   "avg_hours": 79.0,
+   "breach_hours": 73906.0
+  },
+  {
+   "Case_Type": "Enrollment Change",
+   "target_hours": 24,
+   "cases": 2843,
+   "sla_pct": 44.69,
+   "avg_hours": 30.9,
+   "breach_hours": 28808.0
+  },
+  {
+   "Case_Type": "Claims Dispute",
+   "target_hours": 72,
+   "cases": 3064,
+   "sla_pct": 65.86,
+   "avg_hours": 66.2,
+   "breach_hours": 34911.0
+  },
+  {
+   "Case_Type": "Benefits Inquiry",
+   "target_hours": 48,
+   "cases": 3810,
+   "sla_pct": 73.59,
+   "avg_hours": 39.4,
+   "breach_hours": 21608.0
+  },
+  {
+   "Case_Type": "Coverage Termination",
+   "target_hours": 96,
+   "cases": 1417,
+   "sla_pct": 74.62,
+   "avg_hours": 76.4,
+   "breach_hours": 13387.0
+  },
+  {
+   "Case_Type": "Billing Correction",
+   "target_hours": 72,
+   "cases": 2581,
+   "sla_pct": 86.89,
+   "avg_hours": 45.1,
+   "breach_hours": 8190.0
+  }
+ ],
+ "teams": [
+  {
+   "Team_ID": "TEAM-04",
+   "Primary_Capability": "Authorization",
+   "Analyst_Count": 5,
+   "Cases_Handled": 2303,
+   "avg_complexity": 44.9,
+   "Workload_Balance_Index": 1.099,
+   "Balance_Status": "Balanced",
+   "SLA_Compliance_Pct": 25.88,
+   "Assignment_Accuracy_Pct": 73.81,
+   "Median_Resolution_Hours": 71.0
+  },
+  {
+   "Team_ID": "TEAM-03",
+   "Primary_Capability": "Enrollment",
+   "Analyst_Count": 6,
+   "Cases_Handled": 2912,
+   "avg_complexity": 33.8,
+   "Workload_Balance_Index": 0.871,
+   "Balance_Status": "Balanced",
+   "SLA_Compliance_Pct": 49.02,
+   "Assignment_Accuracy_Pct": 73.0,
+   "Median_Resolution_Hours": 27.5
+  },
+  {
+   "Team_ID": "TEAM-02",
+   "Primary_Capability": "Claims",
+   "Analyst_Count": 7,
+   "Cases_Handled": 3068,
+   "avg_complexity": 48.3,
+   "Workload_Balance_Index": 1.125,
+   "Balance_Status": "Balanced",
+   "SLA_Compliance_Pct": 65.73,
+   "Assignment_Accuracy_Pct": 72.76,
+   "Median_Resolution_Hours": 54.8
+  },
+  {
+   "Team_ID": "TEAM-01",
+   "Primary_Capability": "Benefits",
+   "Analyst_Count": 9,
+   "Cases_Handled": 4965,
+   "avg_complexity": 40.6,
+   "Workload_Balance_Index": 1.19,
+   "Balance_Status": "Overloaded",
+   "SLA_Compliance_Pct": 74.29,
+   "Assignment_Accuracy_Pct": 73.51,
+   "Median_Resolution_Hours": 39.3
+  },
+  {
+   "Team_ID": "TEAM-05",
+   "Primary_Capability": "Billing",
+   "Analyst_Count": 8,
+   "Cases_Handled": 2660,
+   "avg_complexity": 40.4,
+   "Workload_Balance_Index": 0.715,
+   "Balance_Status": "Underutilized",
+   "SLA_Compliance_Pct": 84.19,
+   "Assignment_Accuracy_Pct": 72.22,
+   "Median_Resolution_Hours": 38.5
+  }
+ ],
+ "routing": [
+  {
+   "Routing_Method": "Manual Triage",
+   "cases": 4664,
+   "accuracy_pct": 83.83,
+   "lag_hours": 3.47,
+   "reopen_pct": 5.53
+  },
+  {
+   "Routing_Method": "Analyst Self-Select",
+   "cases": 1947,
+   "accuracy_pct": 77.69,
+   "lag_hours": 6.0,
+   "reopen_pct": 6.16
+  },
+  {
+   "Routing_Method": "Auto-Routed",
+   "cases": 9297,
+   "accuracy_pct": 66.77,
+   "lag_hours": 1.24,
+   "reopen_pct": 7.0
+  }
+ ],
+ "reassign_cost": [
+  {
+   "reassignments": 0,
+   "cases": 11620,
+   "avg_hours": 46.3,
+   "sla_pct": 70.33,
+   "reopen_pct": 4.41
+  },
+  {
+   "reassignments": 1,
+   "cases": 3705,
+   "avg_hours": 67.1,
+   "sla_pct": 44.18,
+   "reopen_pct": 12.15
+  },
+  {
+   "reassignments": 2,
+   "cases": 533,
+   "avg_hours": 88.4,
+   "sla_pct": 27.06,
+   "reopen_pct": 11.82
+  },
+  {
+   "reassignments": 3,
+   "cases": 34,
+   "avg_hours": 110.6,
+   "sla_pct": 12.9,
+   "reopen_pct": 8.82
+  }
+ ],
+ "complexity": [
+  {
+   "Complexity_Band": "Low",
+   "cases": 3790,
+   "sla_pct": 68.58,
+   "reassigned_pct": 24.03
+  },
+  {
+   "Complexity_Band": "Moderate",
+   "cases": 9030,
+   "sla_pct": 62.69,
+   "reassigned_pct": 26.73
+  },
+  {
+   "Complexity_Band": "High",
+   "cases": 2771,
+   "sla_pct": 56.07,
+   "reassigned_pct": 30.48
+  },
+  {
+   "Complexity_Band": "Critical",
+   "cases": 317,
+   "sla_pct": 50.0,
+   "reassigned_pct": 34.7
+  }
+ ],
+ "equity_scatter": [
+  {
+   "Team_ID": "TEAM-01",
+   "wbi": 1.19,
+   "sla_pct": 74.29
+  },
+  {
+   "Team_ID": "TEAM-02",
+   "wbi": 1.125,
+   "sla_pct": 65.73
+  },
+  {
+   "Team_ID": "TEAM-03",
+   "wbi": 0.871,
+   "sla_pct": 49.02
+  },
+  {
+   "Team_ID": "TEAM-04",
+   "wbi": 1.099,
+   "sla_pct": 25.88
+  },
+  {
+   "Team_ID": "TEAM-05",
+   "wbi": 0.715,
+   "sla_pct": 84.19
+  }
+ ],
+ "backlog": [
+  {
+   "Team_ID": "TEAM-04",
+   "backlog_days": 8.74
+  },
+  {
+   "Team_ID": "TEAM-02",
+   "backlog_days": 8.48
+  },
+  {
+   "Team_ID": "TEAM-01",
+   "backlog_days": 6.91
+  },
+  {
+   "Team_ID": "TEAM-05",
+   "backlog_days": 3.27
+  },
+  {
+   "Team_ID": "TEAM-03",
+   "backlog_days": 2.65
+  }
+ ],
+ "root_cause": [
+  {
+   "Root_Cause": "Missing documentation",
+   "cases": 4090,
+   "avg_hours": 59.5,
+   "reopen_pct": 6.6
+  },
+  {
+   "Root_Cause": "Policy exception required",
+   "cases": 2463,
+   "avg_hours": 56.5,
+   "reopen_pct": 6.37
+  },
+  {
+   "Root_Cause": "Incorrect initial routing",
+   "cases": 2282,
+   "avg_hours": 56.1,
+   "reopen_pct": 8.41
+  },
+  {
+   "Root_Cause": "System data gap",
+   "cases": 1843,
+   "avg_hours": 45.4,
+   "reopen_pct": 5.81
+  },
+  {
+   "Root_Cause": "No issue identified",
+   "cases": 1817,
+   "avg_hours": 45.7,
+   "reopen_pct": 6.16
+  },
+  {
+   "Root_Cause": "External party delay",
+   "cases": 1746,
+   "avg_hours": 46.6,
+   "reopen_pct": 5.56
+  },
+  {
+   "Root_Cause": "Complex eligibility",
+   "cases": 1333,
+   "avg_hours": 46.2,
+   "reopen_pct": 6.38
+  },
+  {
+   "Root_Cause": "Not Recorded",
+   "cases": 140,
+   "avg_hours": 51.3,
+   "reopen_pct": 6.43
+  }
+ ],
+ "monthly": [
+  {
+   "month": "2026-01",
+   "cases": 2646,
+   "sla_pct": 62.24,
+   "accuracy_pct": 71.89
+  },
+  {
+   "month": "2026-02",
+   "cases": 2467,
+   "sla_pct": 63.88,
+   "accuracy_pct": 74.09
+  },
+  {
+   "month": "2026-03",
+   "cases": 2694,
+   "sla_pct": 61.43,
+   "accuracy_pct": 73.82
+  },
+  {
+   "month": "2026-04",
+   "cases": 2650,
+   "sla_pct": 62.49,
+   "accuracy_pct": 73.38
+  },
+  {
+   "month": "2026-05",
+   "cases": 2764,
+   "sla_pct": 62.95,
+   "accuracy_pct": 72.96
+  },
+  {
+   "month": "2026-06",
+   "cases": 2687,
+   "sla_pct": 63.3,
+   "accuracy_pct": 72.53
+  }
+ ],
+ "tenure": [
+  {
+   "tenure": "0-1 yr",
+   "cases": 2612,
+   "sla_pct": 57.6
+  },
+  {
+   "tenure": "1-3 yr",
+   "cases": 8044,
+   "sla_pct": 62.35
+  },
+  {
+   "tenure": "3+ yr",
+   "cases": 5252,
+   "sla_pct": 65.75
+  }
+ ],
+ "segment": [
+  {
+   "segment": "Enterprise",
+   "cases": 2799,
+   "sla_pct": 62.0
+  },
+  {
+   "segment": "Small Group",
+   "cases": 5485,
+   "sla_pct": 62.19
+  },
+  {
+   "segment": "Mid-Market",
+   "cases": 4272,
+   "sla_pct": 63.31
+  },
+  {
+   "segment": "Individual",
+   "cases": 3352,
+   "sla_pct": 63.32
+  }
+ ],
+ "queue": [
+  {
+   "Case_ID": "CS-2026-011720",
+   "Case_Type": "Coverage Termination",
+   "Priority": "Low",
+   "Assigned_Team": "TEAM-01",
+   "Complexity_Band": "High",
+   "Current_Status": "In Progress",
+   "past_target": 111.8
+  },
+  {
+   "Case_ID": "CS-2026-002359",
+   "Case_Type": "Authorization Review",
+   "Priority": "Standard",
+   "Assigned_Team": "TEAM-04",
+   "Complexity_Band": "High",
+   "Current_Status": "In Progress",
+   "past_target": 89.0
+  },
+  {
+   "Case_ID": "CS-2026-013003",
+   "Case_Type": "Authorization Review",
+   "Priority": "Low",
+   "Assigned_Team": "TEAM-04",
+   "Complexity_Band": "Moderate",
+   "Current_Status": "In Progress",
+   "past_target": 88.3
+  },
+  {
+   "Case_ID": "CS-2026-008297",
+   "Case_Type": "Authorization Review",
+   "Priority": "Low",
+   "Assigned_Team": "TEAM-04",
+   "Complexity_Band": "Moderate",
+   "Current_Status": "Pending Information",
+   "past_target": 78.8
+  },
+  {
+   "Case_ID": "CS-2026-000782",
+   "Case_Type": "Authorization Review",
+   "Priority": "Low",
+   "Assigned_Team": "TEAM-04",
+   "Complexity_Band": "Moderate",
+   "Current_Status": "Pending Information",
+   "past_target": 63.2
+  },
+  {
+   "Case_ID": "CS-2026-000439",
+   "Case_Type": "Claims Dispute",
+   "Priority": "Standard",
+   "Assigned_Team": "TEAM-02",
+   "Complexity_Band": "High",
+   "Current_Status": "In Progress",
+   "past_target": 60.5
+  },
+  {
+   "Case_ID": "CS-2026-007810",
+   "Case_Type": "Authorization Review",
+   "Priority": "Low",
+   "Assigned_Team": "TEAM-04",
+   "Complexity_Band": "Moderate",
+   "Current_Status": "In Progress",
+   "past_target": 54.8
+  },
+  {
+   "Case_ID": "CS-2026-009587",
+   "Case_Type": "Claims Dispute",
+   "Priority": "Standard",
+   "Assigned_Team": "TEAM-02",
+   "Complexity_Band": "High",
+   "Current_Status": "In Progress",
+   "past_target": 37.0
+  },
+  {
+   "Case_ID": "CS-2026-007265",
+   "Case_Type": "Claims Dispute",
+   "Priority": "Low",
+   "Assigned_Team": "TEAM-04",
+   "Complexity_Band": "Moderate",
+   "Current_Status": "In Progress",
+   "past_target": 33.5
+  },
+  {
+   "Case_ID": "CS-2026-004087",
+   "Case_Type": "Benefits Inquiry",
+   "Priority": "Low",
+   "Assigned_Team": "TEAM-01",
+   "Complexity_Band": "Moderate",
+   "Current_Status": "In Progress",
+   "past_target": 31.3
+  },
+  {
+   "Case_ID": "CS-2026-001596",
+   "Case_Type": "Authorization Review",
+   "Priority": "Standard",
+   "Assigned_Team": "TEAM-04",
+   "Complexity_Band": "Moderate",
+   "Current_Status": "In Progress",
+   "past_target": 30.2
+  },
+  {
+   "Case_ID": "CS-2026-000096",
+   "Case_Type": "Authorization Review",
+   "Priority": "Standard",
+   "Assigned_Team": "TEAM-04",
+   "Complexity_Band": "Moderate",
+   "Current_Status": "In Progress",
+   "past_target": 30.2
+  },
+  {
+   "Case_ID": "CS-2026-014354",
+   "Case_Type": "Authorization Review",
+   "Priority": "High",
+   "Assigned_Team": "TEAM-01",
+   "Complexity_Band": "Moderate",
+   "Current_Status": "In Progress",
+   "past_target": 15.8
+  },
+  {
+   "Case_ID": "CS-2026-002352",
+   "Case_Type": "Billing Correction",
+   "Priority": "Standard",
+   "Assigned_Team": "TEAM-05",
+   "Complexity_Band": "Low",
+   "Current_Status": "In Progress",
+   "past_target": 13.3
+  },
+  {
+   "Case_ID": "CS-2026-009736",
+   "Case_Type": "Claims Dispute",
+   "Priority": "Low",
+   "Assigned_Team": "TEAM-02",
+   "Complexity_Band": "Moderate",
+   "Current_Status": "In Progress",
+   "past_target": 12.5
+  },
+  {
+   "Case_ID": "CS-2026-015933",
+   "Case_Type": "Claims Dispute",
+   "Priority": "Standard",
+   "Assigned_Team": "TEAM-02",
+   "Complexity_Band": "High",
+   "Current_Status": "Pending Information",
+   "past_target": 10.5
+  },
+  {
+   "Case_ID": "CS-2026-013857",
+   "Case_Type": "Authorization Review",
+   "Priority": "Low",
+   "Assigned_Team": "TEAM-01",
+   "Complexity_Band": "Moderate",
+   "Current_Status": "Pending Information",
+   "past_target": 10.5
+  },
+  {
+   "Case_ID": "CS-2026-004657",
+   "Case_Type": "Coverage Termination",
+   "Priority": "Standard",
+   "Assigned_Team": "TEAM-01",
+   "Complexity_Band": "High",
+   "Current_Status": "In Progress",
+   "past_target": 9.2
+  },
+  {
+   "Case_ID": "CS-2026-006408",
+   "Case_Type": "Claims Dispute",
+   "Priority": "Standard",
+   "Assigned_Team": "TEAM-02",
+   "Complexity_Band": "High",
+   "Current_Status": "In Progress",
+   "past_target": 8.3
+  },
+  {
+   "Case_ID": "CS-2026-012509",
+   "Case_Type": "Billing Correction",
+   "Priority": "Low",
+   "Assigned_Team": "TEAM-05",
+   "Complexity_Band": "High",
+   "Current_Status": "In Progress",
+   "past_target": 7.0
+  },
+  {
+   "Case_ID": "CS-2026-003831",
+   "Case_Type": "Authorization Review",
+   "Priority": "Low",
+   "Assigned_Team": "TEAM-04",
+   "Complexity_Band": "High",
+   "Current_Status": "In Progress",
+   "past_target": -7.0
+  },
+  {
+   "Case_ID": "CS-2026-005577",
+   "Case_Type": "Authorization Review",
+   "Priority": "Standard",
+   "Assigned_Team": "TEAM-04",
+   "Complexity_Band": "Moderate",
+   "Current_Status": "In Progress",
+   "past_target": -7.3
+  },
+  {
+   "Case_ID": "CS-2026-000224",
+   "Case_Type": "Enrollment Change",
+   "Priority": "Standard",
+   "Assigned_Team": "TEAM-03",
+   "Complexity_Band": "High",
+   "Current_Status": "In Progress",
+   "past_target": -8.5
+  },
+  {
+   "Case_ID": "CS-2026-005484",
+   "Case_Type": "Authorization Review",
+   "Priority": "Standard",
+   "Assigned_Team": "TEAM-04",
+   "Complexity_Band": "Critical",
+   "Current_Status": "Pending Information",
+   "past_target": -8.8
+  },
+  {
+   "Case_ID": "CS-2026-008838",
+   "Case_Type": "Enrollment Change",
+   "Priority": "Standard",
+   "Assigned_Team": "TEAM-03",
+   "Complexity_Band": "Low",
+   "Current_Status": "In Progress",
+   "past_target": -9.8
+  }
+ ],
+ "exceptions": [
+  {
+   "Rule_ID": "DQ-13",
+   "Severity": "Low",
+   "Action_Taken": "Normalized, record retained",
+   "exceptions": 158
+  },
+  {
+   "Rule_ID": "DQ-14",
+   "Severity": "Medium",
+   "Action_Taken": "Set to Not Recorded",
+   "exceptions": 140
+  },
+  {
+   "Rule_ID": "DQ-02",
+   "Severity": "Low",
+   "Action_Taken": "Normalized, record retained",
+   "exceptions": 120
+  },
+  {
+   "Rule_ID": "DQ-01",
+   "Severity": "High",
+   "Action_Taken": "First occurrence retained",
+   "exceptions": 55
+  },
+  {
+   "Rule_ID": "DQ-07",
+   "Severity": "Critical",
+   "Action_Taken": "Excluded from reporting",
+   "exceptions": 34
+  },
+  {
+   "Rule_ID": "DQ-06",
+   "Severity": "Critical",
+   "Action_Taken": "Excluded from reporting",
+   "exceptions": 26
+  },
+  {
+   "Rule_ID": "DQ-09",
+   "Severity": "Critical",
+   "Action_Taken": "Excluded from reporting",
+   "exceptions": 17
+  },
+  {
+   "Rule_ID": "DQ-03",
+   "Severity": "Critical",
+   "Action_Taken": "Excluded from reporting",
+   "exceptions": 15
+  },
+  {
+   "Rule_ID": "DQ-12",
+   "Severity": "High",
+   "Action_Taken": "Set to null; excluded from routing accuracy",
+   "exceptions": 12
+  }
+ ]
+}
