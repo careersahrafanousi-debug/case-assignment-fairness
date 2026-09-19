@@ -1,0 +1,27 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["headline", "dq", "by_case_type", "teams", "routing", "reassign_cost", "complexity", "equity_scatter", "backlog", "root_cause", "monthly", "tenure", "segment", "queue", "exceptions"]
+
+ref table headline
+ref table dq
+ref table by_case_type
+ref table teams
+ref table routing
+ref table reassign_cost
+ref table complexity
+ref table equity_scatter
+ref table backlog
+ref table root_cause
+ref table monthly
+ref table tenure
+ref table segment
+ref table queue
+ref table exceptions
+
+ref expression ExtractFolder

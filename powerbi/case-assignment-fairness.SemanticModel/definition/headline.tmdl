@@ -1,0 +1,96 @@
+table headline
+
+	column total_cases
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: total_cases
+
+	column resolved
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: resolved
+
+	column open_cases
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: open_cases
+
+	column sla_pct
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: sla_pct
+
+	column accuracy_pct
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: accuracy_pct
+
+	column reopen_pct
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: reopen_pct
+
+	column avg_hours
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: avg_hours
+
+	column breach_hours
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: breach_hours
+
+	measure 'Cases' = SELECTEDVALUE ( 'headline'[total_cases] )
+		formatString: #,0
+		displayFolder: Measures
+		/// Cases from the headline query extract.
+
+	measure 'SLA compliance' = SELECTEDVALUE ( 'headline'[sla_pct] )
+		formatString: 0.00"%"
+		displayFolder: Measures
+		/// Flat 61–64% for six months
+
+	measure 'Assignment accuracy' = SELECTEDVALUE ( 'headline'[accuracy_pct] )
+		formatString: 0.00"%"
+		displayFolder: Measures
+		/// 26.9% reassigned at least once
+
+	measure 'Reopen rate' = SELECTEDVALUE ( 'headline'[reopen_pct] )
+		formatString: 0.00"%"
+		displayFolder: Measures
+		/// 12.15% once reassigned
+
+	measure 'Avg resolution' = SELECTEDVALUE ( 'headline'[avg_hours] )
+		formatString: #,0.0"h"
+		displayFolder: Measures
+		/// Median 43.0h
+
+	measure 'Total breach hours' = SELECTEDVALUE ( 'headline'[breach_hours] )
+		formatString: #,0.0"h"
+		displayFolder: Measures
+		/// 41% from one case type
+
+	measure 'Open cases' = SELECTEDVALUE ( 'headline'[open_cases] )
+		formatString: #,0
+		displayFolder: Measures
+		/// 20 already past target
+
+	partition headline = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(ExtractFolder & "\headline.csv"),
+				        [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {
+				        {"total_cases", Int64.Type},
+				        {"resolved", Int64.Type},
+				        {"open_cases", Int64.Type},
+				        {"sla_pct", type number},
+				        {"accuracy_pct", type number},
+				        {"reopen_pct", type number},
+				        {"avg_hours", type number},
+				        {"breach_hours", type number}
+				    })
+				in
+				    Typed

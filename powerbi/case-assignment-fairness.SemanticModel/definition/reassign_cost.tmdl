@@ -1,0 +1,58 @@
+table reassign_cost
+
+	column reassignments
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: reassignments
+
+	column cases
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: cases
+
+	column avg_hours
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: avg_hours
+
+	column sla_pct
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: sla_pct
+
+	column reopen_pct
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: reopen_pct
+
+	measure 'Cases (reassign_cost)' = SUM ( 'reassign_cost'[cases] )
+		formatString: #,0.00
+		displayFolder: Measures
+		/// Cases for the 'What a reassignment costs' visual.
+
+	measure 'SLA compliance % (reassign_cost)' = AVERAGE ( 'reassign_cost'[sla_pct] )
+		formatString: #,0.00
+		displayFolder: Measures
+		/// SLA compliance % for the 'What a reassignment costs' visual.
+
+	measure 'Reopen % (reassign_cost)' = AVERAGE ( 'reassign_cost'[reopen_pct] )
+		formatString: #,0.00
+		displayFolder: Measures
+		/// Reopen % for the 'What a reassignment costs' visual.
+
+	partition reassign_cost = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(ExtractFolder & "\reassign_cost.csv"),
+				        [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {
+				        {"reassignments", Int64.Type},
+				        {"cases", Int64.Type},
+				        {"avg_hours", type number},
+				        {"sla_pct", type number},
+				        {"reopen_pct", type number}
+				    })
+				in
+				    Typed

@@ -1,0 +1,69 @@
+table by_case_type
+
+	column Case_Type
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Case_Type
+
+	column target_hours
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: target_hours
+
+	column cases
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: cases
+
+	column sla_pct
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: sla_pct
+
+	column avg_hours
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: avg_hours
+
+	column breach_hours
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: breach_hours
+
+	measure 'SLA compliance % (by_case_type)' = AVERAGE ( 'by_case_type'[sla_pct] )
+		formatString: #,0.00
+		displayFolder: Measures
+		/// SLA compliance % for the 'SLA compliance by case type, against its own target' visual.
+
+	measure 'Breach hours (by_case_type)' = SUM ( 'by_case_type'[breach_hours] )
+		formatString: #,0.00
+		displayFolder: Measures
+		/// Breach hours for the 'Where the lateness actually is' visual.
+
+	measure 'Avg resolution hours (by_case_type)' = AVERAGE ( 'by_case_type'[avg_hours] )
+		formatString: #,0.00
+		displayFolder: Measures
+		/// Avg resolution hours for the 'Average resolution time vs the published target' visual.
+
+	measure 'SLA target hours (by_case_type)' = SUM ( 'by_case_type'[target_hours] )
+		formatString: #,0.00
+		displayFolder: Measures
+		/// SLA target hours for the 'Average resolution time vs the published target' visual.
+
+	partition by_case_type = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(ExtractFolder & "\by_case_type.csv"),
+				        [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {
+				        {"Case_Type", type text},
+				        {"target_hours", Int64.Type},
+				        {"cases", Int64.Type},
+				        {"sla_pct", type number},
+				        {"avg_hours", type number},
+				        {"breach_hours", type number}
+				    })
+				in
+				    Typed

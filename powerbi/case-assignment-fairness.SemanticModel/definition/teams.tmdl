@@ -1,0 +1,73 @@
+table teams
+
+	column Team_ID
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Team_ID
+
+	column Primary_Capability
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Primary_Capability
+
+	column Analyst_Count
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: Analyst_Count
+
+	column Cases_Handled
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: Cases_Handled
+
+	column avg_complexity
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: avg_complexity
+
+	column Workload_Balance_Index
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: Workload_Balance_Index
+
+	column Balance_Status
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Balance_Status
+
+	column SLA_Compliance_Pct
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: SLA_Compliance_Pct
+
+	column Assignment_Accuracy_Pct
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: Assignment_Accuracy_Pct
+
+	column Median_Resolution_Hours
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: Median_Resolution_Hours
+
+	partition teams = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(ExtractFolder & "\teams.csv"),
+				        [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {
+				        {"Team_ID", type text},
+				        {"Primary_Capability", type text},
+				        {"Analyst_Count", Int64.Type},
+				        {"Cases_Handled", Int64.Type},
+				        {"avg_complexity", type number},
+				        {"Workload_Balance_Index", type number},
+				        {"Balance_Status", type text},
+				        {"SLA_Compliance_Pct", type number},
+				        {"Assignment_Accuracy_Pct", type number},
+				        {"Median_Resolution_Hours", type number}
+				    })
+				in
+				    Typed

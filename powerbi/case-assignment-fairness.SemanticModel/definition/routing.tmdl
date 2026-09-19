@@ -1,0 +1,58 @@
+table routing
+
+	column Routing_Method
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Routing_Method
+
+	column cases
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: cases
+
+	column accuracy_pct
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: accuracy_pct
+
+	column lag_hours
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: lag_hours
+
+	column reopen_pct
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: reopen_pct
+
+	measure 'Assignment accuracy % (routing)' = AVERAGE ( 'routing'[accuracy_pct] )
+		formatString: #,0.00
+		displayFolder: Measures
+		/// Assignment accuracy % for the 'Routing accuracy by method' visual.
+
+	measure 'Reopen % (routing)' = AVERAGE ( 'routing'[reopen_pct] )
+		formatString: #,0.00
+		displayFolder: Measures
+		/// Reopen % for the 'Routing accuracy by method' visual.
+
+	measure 'Assignment lag (hours) (routing)' = SUM ( 'routing'[lag_hours] )
+		formatString: #,0.00
+		displayFolder: Measures
+		/// Assignment lag (hours) for the 'Routing accuracy by method' visual.
+
+	partition routing = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(ExtractFolder & "\routing.csv"),
+				        [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {
+				        {"Routing_Method", type text},
+				        {"cases", Int64.Type},
+				        {"accuracy_pct", type number},
+				        {"lag_hours", type number},
+				        {"reopen_pct", type number}
+				    })
+				in
+				    Typed

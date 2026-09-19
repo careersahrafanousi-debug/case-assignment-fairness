@@ -1,0 +1,42 @@
+table root_cause
+
+	column Root_Cause
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Root_Cause
+
+	column cases
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: cases
+
+	column avg_hours
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: avg_hours
+
+	column reopen_pct
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: reopen_pct
+
+	measure 'Cases (root_cause)' = SUM ( 'root_cause'[cases] )
+		formatString: #,0.00
+		displayFolder: Measures
+		/// Cases for the 'Root cause of resolved cases' visual.
+
+	partition root_cause = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(ExtractFolder & "\root_cause.csv"),
+				        [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {
+				        {"Root_Cause", type text},
+				        {"cases", Int64.Type},
+				        {"avg_hours", type number},
+				        {"reopen_pct", type number}
+				    })
+				in
+				    Typed

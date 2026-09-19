@@ -1,0 +1,36 @@
+table dq
+
+	column exceptions
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: exceptions
+
+	column excluded
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: excluded
+
+	column dq_score
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: dq_score
+
+	measure 'Data quality score' = SELECTEDVALUE ( 'dq'[dq_score] )
+		formatString: 0.00"%"
+		displayFolder: Measures
+		/// 92 records excluded and logged
+
+	partition dq = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(ExtractFolder & "\dq.csv"),
+				        [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {
+				        {"exceptions", Int64.Type},
+				        {"excluded", Int64.Type},
+				        {"dq_score", type number}
+				    })
+				in
+				    Typed

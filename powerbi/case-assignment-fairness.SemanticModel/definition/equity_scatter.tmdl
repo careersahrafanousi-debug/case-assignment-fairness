@@ -1,0 +1,31 @@
+table equity_scatter
+
+	column Team_ID
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Team_ID
+
+	column wbi
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: wbi
+
+	column sla_pct
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: sla_pct
+
+	partition equity_scatter = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(ExtractFolder & "\equity_scatter.csv"),
+				        [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {
+				        {"Team_ID", type text},
+				        {"wbi", type number},
+				        {"sla_pct", type number}
+				    })
+				in
+				    Typed

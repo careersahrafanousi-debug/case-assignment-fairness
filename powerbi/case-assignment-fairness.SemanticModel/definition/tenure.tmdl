@@ -1,0 +1,36 @@
+table tenure
+
+	column tenure
+		dataType: string
+		summarizeBy: none
+		sourceColumn: tenure
+
+	column cases
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: cases
+
+	column sla_pct
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: sla_pct
+
+	measure 'SLA compliance % (tenure)' = AVERAGE ( 'tenure'[sla_pct] )
+		formatString: #,0.00
+		displayFolder: Measures
+		/// SLA compliance % for the 'Tenure effect — real but small' visual.
+
+	partition tenure = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(ExtractFolder & "\tenure.csv"),
+				        [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {
+				        {"tenure", type text},
+				        {"cases", Int64.Type},
+				        {"sla_pct", type number}
+				    })
+				in
+				    Typed

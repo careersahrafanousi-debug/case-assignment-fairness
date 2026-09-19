@@ -1,0 +1,55 @@
+table queue
+
+	column Case_ID
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Case_ID
+
+	column Case_Type
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Case_Type
+
+	column Priority
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Priority
+
+	column Assigned_Team
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Assigned_Team
+
+	column Complexity_Band
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Complexity_Band
+
+	column Current_Status
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Current_Status
+
+	column past_target
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: past_target
+
+	partition queue = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(ExtractFolder & "\queue.csv"),
+				        [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {
+				        {"Case_ID", type text},
+				        {"Case_Type", type text},
+				        {"Priority", type text},
+				        {"Assigned_Team", type text},
+				        {"Complexity_Band", type text},
+				        {"Current_Status", type text},
+				        {"past_target", type number}
+				    })
+				in
+				    Typed

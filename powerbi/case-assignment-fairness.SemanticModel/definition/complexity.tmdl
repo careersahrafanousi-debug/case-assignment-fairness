@@ -1,0 +1,47 @@
+table complexity
+
+	column Complexity_Band
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Complexity_Band
+
+	column cases
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: cases
+
+	column sla_pct
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: sla_pct
+
+	column reassigned_pct
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: reassigned_pct
+
+	measure 'SLA compliance % (complexity)' = AVERAGE ( 'complexity'[sla_pct] )
+		formatString: #,0.00
+		displayFolder: Measures
+		/// SLA compliance % for the 'Does the complexity score predict anything?' visual.
+
+	measure 'Reassigned at least once % (complexity)' = AVERAGE ( 'complexity'[reassigned_pct] )
+		formatString: #,0.00
+		displayFolder: Measures
+		/// Reassigned at least once % for the 'Does the complexity score predict anything?' visual.
+
+	partition complexity = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(ExtractFolder & "\complexity.csv"),
+				        [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {
+				        {"Complexity_Band", type text},
+				        {"cases", Int64.Type},
+				        {"sla_pct", type number},
+				        {"reassigned_pct", type number}
+				    })
+				in
+				    Typed

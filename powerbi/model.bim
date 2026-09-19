@@ -1,0 +1,852 @@
+{
+  "name": "case-assignment-fairness",
+  "compatibilityLevel": 1567,
+  "model": {
+    "culture": "en-US",
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "headline",
+        "columns": [
+          {
+            "name": "total_cases",
+            "dataType": "int64",
+            "sourceColumn": "total_cases",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "resolved",
+            "dataType": "int64",
+            "sourceColumn": "resolved",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "open_cases",
+            "dataType": "int64",
+            "sourceColumn": "open_cases",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "sla_pct",
+            "dataType": "double",
+            "sourceColumn": "sla_pct",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "accuracy_pct",
+            "dataType": "double",
+            "sourceColumn": "accuracy_pct",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "reopen_pct",
+            "dataType": "double",
+            "sourceColumn": "reopen_pct",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "avg_hours",
+            "dataType": "double",
+            "sourceColumn": "avg_hours",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "breach_hours",
+            "dataType": "double",
+            "sourceColumn": "breach_hours",
+            "summarizeBy": "sum"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "headline",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": "Csv.Document(File.Contents(ExtractFolder & \"\\headline.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv])"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Cases",
+            "expression": "SELECTEDVALUE ( 'headline'[total_cases] )",
+            "formatString": "#,0",
+            "description": "Cases from the headline query extract."
+          },
+          {
+            "name": "SLA compliance",
+            "expression": "SELECTEDVALUE ( 'headline'[sla_pct] )",
+            "formatString": "0.00\"%\"",
+            "description": "Flat 61\u201364% for six months"
+          },
+          {
+            "name": "Assignment accuracy",
+            "expression": "SELECTEDVALUE ( 'headline'[accuracy_pct] )",
+            "formatString": "0.00\"%\"",
+            "description": "26.9% reassigned at least once"
+          },
+          {
+            "name": "Reopen rate",
+            "expression": "SELECTEDVALUE ( 'headline'[reopen_pct] )",
+            "formatString": "0.00\"%\"",
+            "description": "12.15% once reassigned"
+          },
+          {
+            "name": "Avg resolution",
+            "expression": "SELECTEDVALUE ( 'headline'[avg_hours] )",
+            "formatString": "#,0.0\"h\"",
+            "description": "Median 43.0h"
+          },
+          {
+            "name": "Total breach hours",
+            "expression": "SELECTEDVALUE ( 'headline'[breach_hours] )",
+            "formatString": "#,0.0\"h\"",
+            "description": "41% from one case type"
+          },
+          {
+            "name": "Open cases",
+            "expression": "SELECTEDVALUE ( 'headline'[open_cases] )",
+            "formatString": "#,0",
+            "description": "20 already past target"
+          }
+        ]
+      },
+      {
+        "name": "dq",
+        "columns": [
+          {
+            "name": "exceptions",
+            "dataType": "int64",
+            "sourceColumn": "exceptions",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "excluded",
+            "dataType": "int64",
+            "sourceColumn": "excluded",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "dq_score",
+            "dataType": "double",
+            "sourceColumn": "dq_score",
+            "summarizeBy": "sum"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dq",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": "Csv.Document(File.Contents(ExtractFolder & \"\\dq.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv])"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Data quality score",
+            "expression": "SELECTEDVALUE ( 'dq'[dq_score] )",
+            "formatString": "0.00\"%\"",
+            "description": "92 records excluded and logged"
+          }
+        ]
+      },
+      {
+        "name": "by_case_type",
+        "columns": [
+          {
+            "name": "Case_Type",
+            "dataType": "string",
+            "sourceColumn": "Case_Type",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "target_hours",
+            "dataType": "int64",
+            "sourceColumn": "target_hours",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "cases",
+            "dataType": "int64",
+            "sourceColumn": "cases",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "sla_pct",
+            "dataType": "double",
+            "sourceColumn": "sla_pct",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "avg_hours",
+            "dataType": "double",
+            "sourceColumn": "avg_hours",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "breach_hours",
+            "dataType": "double",
+            "sourceColumn": "breach_hours",
+            "summarizeBy": "sum"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "by_case_type",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": "Csv.Document(File.Contents(ExtractFolder & \"\\by_case_type.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv])"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "SLA compliance % (by_case_type)",
+            "expression": "AVERAGE ( 'by_case_type'[sla_pct] )",
+            "formatString": "#,0.00",
+            "description": "SLA compliance % for the 'SLA compliance by case type, against its own target' visual."
+          },
+          {
+            "name": "Breach hours (by_case_type)",
+            "expression": "SUM ( 'by_case_type'[breach_hours] )",
+            "formatString": "#,0.00",
+            "description": "Breach hours for the 'Where the lateness actually is' visual."
+          },
+          {
+            "name": "Avg resolution hours (by_case_type)",
+            "expression": "AVERAGE ( 'by_case_type'[avg_hours] )",
+            "formatString": "#,0.00",
+            "description": "Avg resolution hours for the 'Average resolution time vs the published target' visual."
+          },
+          {
+            "name": "SLA target hours (by_case_type)",
+            "expression": "SUM ( 'by_case_type'[target_hours] )",
+            "formatString": "#,0.00",
+            "description": "SLA target hours for the 'Average resolution time vs the published target' visual."
+          }
+        ]
+      },
+      {
+        "name": "teams",
+        "columns": [
+          {
+            "name": "Team_ID",
+            "dataType": "string",
+            "sourceColumn": "Team_ID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Primary_Capability",
+            "dataType": "string",
+            "sourceColumn": "Primary_Capability",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Analyst_Count",
+            "dataType": "int64",
+            "sourceColumn": "Analyst_Count",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Cases_Handled",
+            "dataType": "int64",
+            "sourceColumn": "Cases_Handled",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "avg_complexity",
+            "dataType": "double",
+            "sourceColumn": "avg_complexity",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Workload_Balance_Index",
+            "dataType": "double",
+            "sourceColumn": "Workload_Balance_Index",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Balance_Status",
+            "dataType": "string",
+            "sourceColumn": "Balance_Status",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "SLA_Compliance_Pct",
+            "dataType": "double",
+            "sourceColumn": "SLA_Compliance_Pct",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Assignment_Accuracy_Pct",
+            "dataType": "double",
+            "sourceColumn": "Assignment_Accuracy_Pct",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Median_Resolution_Hours",
+            "dataType": "double",
+            "sourceColumn": "Median_Resolution_Hours",
+            "summarizeBy": "sum"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "teams",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": "Csv.Document(File.Contents(ExtractFolder & \"\\teams.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv])"
+            }
+          }
+        ]
+      },
+      {
+        "name": "routing",
+        "columns": [
+          {
+            "name": "Routing_Method",
+            "dataType": "string",
+            "sourceColumn": "Routing_Method",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "cases",
+            "dataType": "int64",
+            "sourceColumn": "cases",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "accuracy_pct",
+            "dataType": "double",
+            "sourceColumn": "accuracy_pct",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "lag_hours",
+            "dataType": "double",
+            "sourceColumn": "lag_hours",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "reopen_pct",
+            "dataType": "double",
+            "sourceColumn": "reopen_pct",
+            "summarizeBy": "sum"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "routing",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": "Csv.Document(File.Contents(ExtractFolder & \"\\routing.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv])"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Assignment accuracy % (routing)",
+            "expression": "AVERAGE ( 'routing'[accuracy_pct] )",
+            "formatString": "#,0.00",
+            "description": "Assignment accuracy % for the 'Routing accuracy by method' visual."
+          },
+          {
+            "name": "Reopen % (routing)",
+            "expression": "AVERAGE ( 'routing'[reopen_pct] )",
+            "formatString": "#,0.00",
+            "description": "Reopen % for the 'Routing accuracy by method' visual."
+          },
+          {
+            "name": "Assignment lag (hours) (routing)",
+            "expression": "SUM ( 'routing'[lag_hours] )",
+            "formatString": "#,0.00",
+            "description": "Assignment lag (hours) for the 'Routing accuracy by method' visual."
+          }
+        ]
+      },
+      {
+        "name": "reassign_cost",
+        "columns": [
+          {
+            "name": "reassignments",
+            "dataType": "int64",
+            "sourceColumn": "reassignments",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "cases",
+            "dataType": "int64",
+            "sourceColumn": "cases",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "avg_hours",
+            "dataType": "double",
+            "sourceColumn": "avg_hours",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "sla_pct",
+            "dataType": "double",
+            "sourceColumn": "sla_pct",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "reopen_pct",
+            "dataType": "double",
+            "sourceColumn": "reopen_pct",
+            "summarizeBy": "sum"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "reassign_cost",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": "Csv.Document(File.Contents(ExtractFolder & \"\\reassign_cost.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv])"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Cases (reassign_cost)",
+            "expression": "SUM ( 'reassign_cost'[cases] )",
+            "formatString": "#,0.00",
+            "description": "Cases for the 'What a reassignment costs' visual."
+          },
+          {
+            "name": "SLA compliance % (reassign_cost)",
+            "expression": "AVERAGE ( 'reassign_cost'[sla_pct] )",
+            "formatString": "#,0.00",
+            "description": "SLA compliance % for the 'What a reassignment costs' visual."
+          },
+          {
+            "name": "Reopen % (reassign_cost)",
+            "expression": "AVERAGE ( 'reassign_cost'[reopen_pct] )",
+            "formatString": "#,0.00",
+            "description": "Reopen % for the 'What a reassignment costs' visual."
+          }
+        ]
+      },
+      {
+        "name": "complexity",
+        "columns": [
+          {
+            "name": "Complexity_Band",
+            "dataType": "string",
+            "sourceColumn": "Complexity_Band",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "cases",
+            "dataType": "int64",
+            "sourceColumn": "cases",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "sla_pct",
+            "dataType": "double",
+            "sourceColumn": "sla_pct",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "reassigned_pct",
+            "dataType": "double",
+            "sourceColumn": "reassigned_pct",
+            "summarizeBy": "sum"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "complexity",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": "Csv.Document(File.Contents(ExtractFolder & \"\\complexity.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv])"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "SLA compliance % (complexity)",
+            "expression": "AVERAGE ( 'complexity'[sla_pct] )",
+            "formatString": "#,0.00",
+            "description": "SLA compliance % for the 'Does the complexity score predict anything?' visual."
+          },
+          {
+            "name": "Reassigned at least once % (complexity)",
+            "expression": "AVERAGE ( 'complexity'[reassigned_pct] )",
+            "formatString": "#,0.00",
+            "description": "Reassigned at least once % for the 'Does the complexity score predict anything?' visual."
+          }
+        ]
+      },
+      {
+        "name": "equity_scatter",
+        "columns": [
+          {
+            "name": "Team_ID",
+            "dataType": "string",
+            "sourceColumn": "Team_ID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "wbi",
+            "dataType": "double",
+            "sourceColumn": "wbi",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "sla_pct",
+            "dataType": "double",
+            "sourceColumn": "sla_pct",
+            "summarizeBy": "sum"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "equity_scatter",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": "Csv.Document(File.Contents(ExtractFolder & \"\\equity_scatter.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv])"
+            }
+          }
+        ]
+      },
+      {
+        "name": "backlog",
+        "columns": [
+          {
+            "name": "Team_ID",
+            "dataType": "string",
+            "sourceColumn": "Team_ID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "backlog_days",
+            "dataType": "double",
+            "sourceColumn": "backlog_days",
+            "summarizeBy": "sum"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "backlog",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": "Csv.Document(File.Contents(ExtractFolder & \"\\backlog.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv])"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Days of queued work (backlog)",
+            "expression": "SUM ( 'backlog'[backlog_days] )",
+            "formatString": "#,0.00",
+            "description": "Days of queued work for the 'Backlog days of work' visual."
+          }
+        ]
+      },
+      {
+        "name": "root_cause",
+        "columns": [
+          {
+            "name": "Root_Cause",
+            "dataType": "string",
+            "sourceColumn": "Root_Cause",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "cases",
+            "dataType": "int64",
+            "sourceColumn": "cases",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "avg_hours",
+            "dataType": "double",
+            "sourceColumn": "avg_hours",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "reopen_pct",
+            "dataType": "double",
+            "sourceColumn": "reopen_pct",
+            "summarizeBy": "sum"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "root_cause",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": "Csv.Document(File.Contents(ExtractFolder & \"\\root_cause.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv])"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Cases (root_cause)",
+            "expression": "SUM ( 'root_cause'[cases] )",
+            "formatString": "#,0.00",
+            "description": "Cases for the 'Root cause of resolved cases' visual."
+          }
+        ]
+      },
+      {
+        "name": "monthly",
+        "columns": [
+          {
+            "name": "month",
+            "dataType": "string",
+            "sourceColumn": "month",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "cases",
+            "dataType": "int64",
+            "sourceColumn": "cases",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "sla_pct",
+            "dataType": "double",
+            "sourceColumn": "sla_pct",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "accuracy_pct",
+            "dataType": "double",
+            "sourceColumn": "accuracy_pct",
+            "summarizeBy": "sum"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "monthly",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": "Csv.Document(File.Contents(ExtractFolder & \"\\monthly.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv])"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "SLA compliance % (monthly)",
+            "expression": "AVERAGE ( 'monthly'[sla_pct] )",
+            "formatString": "#,0.00",
+            "description": "SLA compliance % for the 'Monthly trend' visual."
+          },
+          {
+            "name": "Assignment accuracy % (monthly)",
+            "expression": "AVERAGE ( 'monthly'[accuracy_pct] )",
+            "formatString": "#,0.00",
+            "description": "Assignment accuracy % for the 'Monthly trend' visual."
+          }
+        ]
+      },
+      {
+        "name": "tenure",
+        "columns": [
+          {
+            "name": "tenure",
+            "dataType": "string",
+            "sourceColumn": "tenure",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "cases",
+            "dataType": "int64",
+            "sourceColumn": "cases",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "sla_pct",
+            "dataType": "double",
+            "sourceColumn": "sla_pct",
+            "summarizeBy": "sum"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "tenure",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": "Csv.Document(File.Contents(ExtractFolder & \"\\tenure.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv])"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "SLA compliance % (tenure)",
+            "expression": "AVERAGE ( 'tenure'[sla_pct] )",
+            "formatString": "#,0.00",
+            "description": "SLA compliance % for the 'Tenure effect \u2014 real but small' visual."
+          }
+        ]
+      },
+      {
+        "name": "segment",
+        "columns": [
+          {
+            "name": "segment",
+            "dataType": "string",
+            "sourceColumn": "segment",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "cases",
+            "dataType": "int64",
+            "sourceColumn": "cases",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "sla_pct",
+            "dataType": "double",
+            "sourceColumn": "sla_pct",
+            "summarizeBy": "sum"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "segment",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": "Csv.Document(File.Contents(ExtractFolder & \"\\segment.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv])"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "SLA compliance % (segment)",
+            "expression": "AVERAGE ( 'segment'[sla_pct] )",
+            "formatString": "#,0.00",
+            "description": "SLA compliance % for the 'Segment equity \u2014 a null finding, reported anyway' visual."
+          }
+        ]
+      },
+      {
+        "name": "queue",
+        "columns": [
+          {
+            "name": "Case_ID",
+            "dataType": "string",
+            "sourceColumn": "Case_ID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Case_Type",
+            "dataType": "string",
+            "sourceColumn": "Case_Type",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Priority",
+            "dataType": "string",
+            "sourceColumn": "Priority",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Assigned_Team",
+            "dataType": "string",
+            "sourceColumn": "Assigned_Team",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Complexity_Band",
+            "dataType": "string",
+            "sourceColumn": "Complexity_Band",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Current_Status",
+            "dataType": "string",
+            "sourceColumn": "Current_Status",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "past_target",
+            "dataType": "double",
+            "sourceColumn": "past_target",
+            "summarizeBy": "sum"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "queue",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": "Csv.Document(File.Contents(ExtractFolder & \"\\queue.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv])"
+            }
+          }
+        ]
+      },
+      {
+        "name": "exceptions",
+        "columns": [
+          {
+            "name": "Rule_ID",
+            "dataType": "string",
+            "sourceColumn": "Rule_ID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Severity",
+            "dataType": "string",
+            "sourceColumn": "Severity",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Action_Taken",
+            "dataType": "string",
+            "sourceColumn": "Action_Taken",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "exceptions",
+            "dataType": "int64",
+            "sourceColumn": "exceptions",
+            "summarizeBy": "sum"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "exceptions",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": "Csv.Document(File.Contents(ExtractFolder & \"\\exceptions.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv])"
+            }
+          }
+        ]
+      }
+    ],
+    "expressions": [
+      {
+        "name": "ExtractFolder",
+        "kind": "m",
+        "expression": "\"..\\..\\bi_extracts\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]",
+        "description": "Folder holding the CSV extracts written by src/build_bi_assets.py."
+      }
+    ]
+  }
+}

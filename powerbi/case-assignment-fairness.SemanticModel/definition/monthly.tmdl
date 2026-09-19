@@ -1,0 +1,47 @@
+table monthly
+
+	column month
+		dataType: string
+		summarizeBy: none
+		sourceColumn: month
+
+	column cases
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: cases
+
+	column sla_pct
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: sla_pct
+
+	column accuracy_pct
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: accuracy_pct
+
+	measure 'SLA compliance % (monthly)' = AVERAGE ( 'monthly'[sla_pct] )
+		formatString: #,0.00
+		displayFolder: Measures
+		/// SLA compliance % for the 'Monthly trend' visual.
+
+	measure 'Assignment accuracy % (monthly)' = AVERAGE ( 'monthly'[accuracy_pct] )
+		formatString: #,0.00
+		displayFolder: Measures
+		/// Assignment accuracy % for the 'Monthly trend' visual.
+
+	partition monthly = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(ExtractFolder & "\monthly.csv"),
+				        [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {
+				        {"month", type text},
+				        {"cases", Int64.Type},
+				        {"sla_pct", type number},
+				        {"accuracy_pct", type number}
+				    })
+				in
+				    Typed
