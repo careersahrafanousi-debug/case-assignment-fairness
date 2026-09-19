@@ -4,6 +4,16 @@ A business-analysis and analytics case study for **ClearPath Case Services**, a
 fictional third-party administrator that resolves member and provider case work
 on behalf of health plans. Five teams, 35 analysts, six months of case history.
 
+**Live dashboard: [https://careersahrafanousi-debug.github.io/case-assignment-fairness/dashboard/](https://careersahrafanousi-debug.github.io/case-assignment-fairness/dashboard/)**
+
+Built by [`src/build_dashboard.py`](src/build_dashboard.py) from the query set in
+[`dashboard/dashboard_config.json`](dashboard/dashboard_config.json), run against `data/cases.db`.
+Every number on the page comes out of a SQL query held in that config file, so the page
+cannot drift away from the analysis in [`sql/`](sql/) — regenerate it with
+`python src/load_sqlite.py && python src/build_dashboard.py`. Chosen over a `.pbix`
+because a reviewer can open a URL and cannot open a binary.
+
+
 The question the business actually asked was "which team is underperforming?"
 The analysis answered a better one: **is work being distributed and routed in a
 way that makes the SLA achievable at all?**
@@ -322,7 +332,10 @@ Balance Index and backlog days together. See
 - **No cost or savings figures.** Recommendation 2 is expressed as fewer
   misroutes, not as dollars, because no rate data exists in this dataset and
   inventing one would be the least defensible thing in the repo.
-- **No `.pbix`.** Dashboard is specified, not built. Deliberate, explained above.
+- **No `.pbix`.** The dashboard is built — as a live HTML page at
+  [https://careersahrafanousi-debug.github.io/case-assignment-fairness/dashboard/](https://careersahrafanousi-debug.github.io/case-assignment-fairness/dashboard/), generated from SQL by `src/build_dashboard.py`. The
+  Power BI implementation remains a specification rather than a binary, which is deliberate
+  and explained above.
 - **The Workload Balance Index is period-level.** An earlier version computed it
   on open cases only; with a 43-hour median resolution the open backlog is 194
   cases across five teams and the index swung on a handful of records. The
