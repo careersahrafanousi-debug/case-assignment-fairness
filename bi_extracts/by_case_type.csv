@@ -1,0 +1,7 @@
+Case_Type,target_hours,cases,sla_pct,avg_hours,breach_hours
+Authorization Review,48,2193,26.37,79.0,73906.0
+Enrollment Change,24,2843,44.69,30.9,28808.0
+Claims Dispute,72,3064,65.86,66.2,34911.0
+Benefits Inquiry,48,3810,73.59,39.4,21608.0
+Coverage Termination,96,1417,74.62,76.4,13387.0
+Billing Correction,72,2581,86.89,45.1,8190.0

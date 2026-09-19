@@ -1,0 +1,4 @@
+Routing_Method,cases,accuracy_pct,lag_hours,reopen_pct
+Manual Triage,4664,83.83,3.47,5.53
+Analyst Self-Select,1947,77.69,6.0,6.16
+Auto-Routed,9297,66.77,1.24,7.0

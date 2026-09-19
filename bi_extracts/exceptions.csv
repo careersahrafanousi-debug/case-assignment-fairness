@@ -1,0 +1,10 @@
+Rule_ID,Severity,Action_Taken,exceptions
+DQ-13,Low,"Normalized, record retained",158
+DQ-14,Medium,Set to Not Recorded,140
+DQ-02,Low,"Normalized, record retained",120
+DQ-01,High,First occurrence retained,55
+DQ-07,Critical,Excluded from reporting,34
+DQ-06,Critical,Excluded from reporting,26
+DQ-09,Critical,Excluded from reporting,17
+DQ-03,Critical,Excluded from reporting,15
+DQ-12,High,Set to null; excluded from routing accuracy,12

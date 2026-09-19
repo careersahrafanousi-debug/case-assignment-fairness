@@ -1,0 +1,26 @@
+Case_ID,Case_Type,Priority,Assigned_Team,Complexity_Band,Current_Status,past_target
+CS-2026-011720,Coverage Termination,Low,TEAM-01,High,In Progress,111.8
+CS-2026-002359,Authorization Review,Standard,TEAM-04,High,In Progress,89.0
+CS-2026-013003,Authorization Review,Low,TEAM-04,Moderate,In Progress,88.3
+CS-2026-008297,Authorization Review,Low,TEAM-04,Moderate,Pending Information,78.8
+CS-2026-000782,Authorization Review,Low,TEAM-04,Moderate,Pending Information,63.2
+CS-2026-000439,Claims Dispute,Standard,TEAM-02,High,In Progress,60.5
+CS-2026-007810,Authorization Review,Low,TEAM-04,Moderate,In Progress,54.8
+CS-2026-009587,Claims Dispute,Standard,TEAM-02,High,In Progress,37.0
+CS-2026-007265,Claims Dispute,Low,TEAM-04,Moderate,In Progress,33.5
+CS-2026-004087,Benefits Inquiry,Low,TEAM-01,Moderate,In Progress,31.3
+CS-2026-001596,Authorization Review,Standard,TEAM-04,Moderate,In Progress,30.2
+CS-2026-000096,Authorization Review,Standard,TEAM-04,Moderate,In Progress,30.2
+CS-2026-014354,Authorization Review,High,TEAM-01,Moderate,In Progress,15.8
+CS-2026-002352,Billing Correction,Standard,TEAM-05,Low,In Progress,13.3
+CS-2026-009736,Claims Dispute,Low,TEAM-02,Moderate,In Progress,12.5
+CS-2026-015933,Claims Dispute,Standard,TEAM-02,High,Pending Information,10.5
+CS-2026-013857,Authorization Review,Low,TEAM-01,Moderate,Pending Information,10.5
+CS-2026-004657,Coverage Termination,Standard,TEAM-01,High,In Progress,9.2
+CS-2026-006408,Claims Dispute,Standard,TEAM-02,High,In Progress,8.3
+CS-2026-012509,Billing Correction,Low,TEAM-05,High,In Progress,7.0
+CS-2026-003831,Authorization Review,Low,TEAM-04,High,In Progress,-7.0
+CS-2026-005577,Authorization Review,Standard,TEAM-04,Moderate,In Progress,-7.3
+CS-2026-000224,Enrollment Change,Standard,TEAM-03,High,In Progress,-8.5
+CS-2026-005484,Authorization Review,Standard,TEAM-04,Critical,Pending Information,-8.8
+CS-2026-008838,Enrollment Change,Standard,TEAM-03,Low,In Progress,-9.8

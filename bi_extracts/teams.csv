@@ -1,0 +1,6 @@
+Team_ID,Primary_Capability,Analyst_Count,Cases_Handled,avg_complexity,Workload_Balance_Index,Balance_Status,SLA_Compliance_Pct,Assignment_Accuracy_Pct,Median_Resolution_Hours
+TEAM-04,Authorization,5,2303,44.9,1.099,Balanced,25.88,73.81,71.0
+TEAM-03,Enrollment,6,2912,33.8,0.871,Balanced,49.02,73.0,27.5
+TEAM-02,Claims,7,3068,48.3,1.125,Balanced,65.73,72.76,54.8
+TEAM-01,Benefits,9,4965,40.6,1.19,Overloaded,74.29,73.51,39.3
+TEAM-05,Billing,8,2660,40.4,0.715,Underutilized,84.19,72.22,38.5

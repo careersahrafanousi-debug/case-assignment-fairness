@@ -1,0 +1,9 @@
+Root_Cause,cases,avg_hours,reopen_pct
+Missing documentation,4090,59.5,6.6
+Policy exception required,2463,56.5,6.37
+Incorrect initial routing,2282,56.1,8.41
+System data gap,1843,45.4,5.81
+No issue identified,1817,45.7,6.16
+External party delay,1746,46.6,5.56
+Complex eligibility,1333,46.2,6.38
+Not Recorded,140,51.3,6.43

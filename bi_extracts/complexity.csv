@@ -1,0 +1,5 @@
+Complexity_Band,cases,sla_pct,reassigned_pct
+Low,3790,68.58,24.03
+Moderate,9030,62.69,26.73
+High,2771,56.07,30.48
+Critical,317,50.0,34.7
