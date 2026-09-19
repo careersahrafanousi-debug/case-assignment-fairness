@@ -1,0 +1,578 @@
+Exception_ID,Rule_ID,Record_ID,Severity,Description,Action_Taken
+EX-00001,DQ-01,CS-2026-001422,High,Duplicate Case_ID.,First occurrence retained
+EX-00002,DQ-01,CS-2026-007050,High,Duplicate Case_ID.,First occurrence retained
+EX-00003,DQ-01,CS-2026-012812,High,Duplicate Case_ID.,First occurrence retained
+EX-00004,DQ-01,CS-2026-001116,High,Duplicate Case_ID.,First occurrence retained
+EX-00005,DQ-01,CS-2026-005289,High,Duplicate Case_ID.,First occurrence retained
+EX-00006,DQ-01,CS-2026-005872,High,Duplicate Case_ID.,First occurrence retained
+EX-00007,DQ-01,CS-2026-015337,High,Duplicate Case_ID.,First occurrence retained
+EX-00008,DQ-01,CS-2026-014288,High,Duplicate Case_ID.,First occurrence retained
+EX-00009,DQ-01,CS-2026-007195,High,Duplicate Case_ID.,First occurrence retained
+EX-00010,DQ-01,CS-2026-014052,High,Duplicate Case_ID.,First occurrence retained
+EX-00011,DQ-01,CS-2026-005038,High,Duplicate Case_ID.,First occurrence retained
+EX-00012,DQ-01,CS-2026-014826,High,Duplicate Case_ID.,First occurrence retained
+EX-00013,DQ-01,CS-2026-004360,High,Duplicate Case_ID.,First occurrence retained
+EX-00014,DQ-01,CS-2026-014814,High,Duplicate Case_ID.,First occurrence retained
+EX-00015,DQ-01,CS-2026-001847,High,Duplicate Case_ID.,First occurrence retained
+EX-00016,DQ-01,CS-2026-010774,High,Duplicate Case_ID.,First occurrence retained
+EX-00017,DQ-01,CS-2026-012897,High,Duplicate Case_ID.,First occurrence retained
+EX-00018,DQ-01,CS-2026-003843,High,Duplicate Case_ID.,First occurrence retained
+EX-00019,DQ-01,CS-2026-005401,High,Duplicate Case_ID.,First occurrence retained
+EX-00020,DQ-01,CS-2026-001599,High,Duplicate Case_ID.,First occurrence retained
+EX-00021,DQ-01,CS-2026-001288,High,Duplicate Case_ID.,First occurrence retained
+EX-00022,DQ-01,CS-2026-004451,High,Duplicate Case_ID.,First occurrence retained
+EX-00023,DQ-01,CS-2026-011267,High,Duplicate Case_ID.,First occurrence retained
+EX-00024,DQ-01,CS-2026-013379,High,Duplicate Case_ID.,First occurrence retained
+EX-00025,DQ-01,CS-2026-002430,High,Duplicate Case_ID.,First occurrence retained
+EX-00026,DQ-01,CS-2026-005020,High,Duplicate Case_ID.,First occurrence retained
+EX-00027,DQ-01,CS-2026-001375,High,Duplicate Case_ID.,First occurrence retained
+EX-00028,DQ-01,CS-2026-005205,High,Duplicate Case_ID.,First occurrence retained
+EX-00029,DQ-01,CS-2026-014272,High,Duplicate Case_ID.,First occurrence retained
+EX-00030,DQ-01,CS-2026-010755,High,Duplicate Case_ID.,First occurrence retained
+EX-00031,DQ-01,CS-2026-006071,High,Duplicate Case_ID.,First occurrence retained
+EX-00032,DQ-01,CS-2026-011179,High,Duplicate Case_ID.,First occurrence retained
+EX-00033,DQ-01,CS-2026-004657,High,Duplicate Case_ID.,First occurrence retained
+EX-00034,DQ-01,CS-2026-009245,High,Duplicate Case_ID.,First occurrence retained
+EX-00035,DQ-01,CS-2026-012279,High,Duplicate Case_ID.,First occurrence retained
+EX-00036,DQ-01,CS-2026-004400,High,Duplicate Case_ID.,First occurrence retained
+EX-00037,DQ-01,CS-2026-000845,High,Duplicate Case_ID.,First occurrence retained
+EX-00038,DQ-01,CS-2026-011207,High,Duplicate Case_ID.,First occurrence retained
+EX-00039,DQ-01,CS-2026-006632,High,Duplicate Case_ID.,First occurrence retained
+EX-00040,DQ-01,CS-2026-000569,High,Duplicate Case_ID.,First occurrence retained
+EX-00041,DQ-01,CS-2026-004025,High,Duplicate Case_ID.,First occurrence retained
+EX-00042,DQ-01,CS-2026-015635,High,Duplicate Case_ID.,First occurrence retained
+EX-00043,DQ-01,CS-2026-011210,High,Duplicate Case_ID.,First occurrence retained
+EX-00044,DQ-01,CS-2026-003417,High,Duplicate Case_ID.,First occurrence retained
+EX-00045,DQ-01,CS-2026-014808,High,Duplicate Case_ID.,First occurrence retained
+EX-00046,DQ-01,CS-2026-004386,High,Duplicate Case_ID.,First occurrence retained
+EX-00047,DQ-01,CS-2026-011073,High,Duplicate Case_ID.,First occurrence retained
+EX-00048,DQ-01,CS-2026-013614,High,Duplicate Case_ID.,First occurrence retained
+EX-00049,DQ-01,CS-2026-002375,High,Duplicate Case_ID.,First occurrence retained
+EX-00050,DQ-01,CS-2026-015214,High,Duplicate Case_ID.,First occurrence retained
+EX-00051,DQ-01,CS-2026-003251,High,Duplicate Case_ID.,First occurrence retained
+EX-00052,DQ-01,CS-2026-008082,High,Duplicate Case_ID.,First occurrence retained
+EX-00053,DQ-01,CS-2026-013053,High,Duplicate Case_ID.,First occurrence retained
+EX-00054,DQ-01,CS-2026-014014,High,Duplicate Case_ID.,First occurrence retained
+EX-00055,DQ-01,CS-2026-011323,High,Duplicate Case_ID.,First occurrence retained
+EX-00056,DQ-02,CS-2026-004262,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00057,DQ-02,CS-2026-002507,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00058,DQ-02,CS-2026-002911,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00059,DQ-02,CS-2026-015677,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00060,DQ-02,CS-2026-014964,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00061,DQ-02,CS-2026-008647,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00062,DQ-02,CS-2026-002484,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00063,DQ-02,CS-2026-008963,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00064,DQ-02,CS-2026-003551,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00065,DQ-02,CS-2026-015882,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00066,DQ-02,CS-2026-001366,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00067,DQ-02,CS-2026-002231,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00068,DQ-02,CS-2026-004574,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00069,DQ-02,CS-2026-001094,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00070,DQ-02,CS-2026-003525,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00071,DQ-02,CS-2026-008915,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00072,DQ-02,CS-2026-012297,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00073,DQ-02,CS-2026-006779,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00074,DQ-02,CS-2026-000865,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00075,DQ-02,CS-2026-007277,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00076,DQ-02,CS-2026-015915,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00077,DQ-02,CS-2026-008641,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00078,DQ-02,CS-2026-010283,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00079,DQ-02,CS-2026-006471,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00080,DQ-02,CS-2026-013666,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00081,DQ-02,CS-2026-007718,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00082,DQ-02,CS-2026-005520,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00083,DQ-02,CS-2026-014668,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00084,DQ-02,CS-2026-014968,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00085,DQ-02,CS-2026-004693,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00086,DQ-02,CS-2026-012769,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00087,DQ-02,CS-2026-010470,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00088,DQ-02,CS-2026-008945,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00089,DQ-02,CS-2026-000185,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00090,DQ-02,CS-2026-005104,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00091,DQ-02,CS-2026-007292,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00092,DQ-02,CS-2026-006060,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00093,DQ-02,CS-2026-001277,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00094,DQ-02,CS-2026-009889,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00095,DQ-02,CS-2026-015434,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00096,DQ-02,CS-2026-001714,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00097,DQ-02,CS-2026-010129,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00098,DQ-02,CS-2026-013229,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00099,DQ-02,CS-2026-014229,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00100,DQ-02,CS-2026-005286,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00101,DQ-02,CS-2026-003528,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00102,DQ-02,CS-2026-000935,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00103,DQ-02,CS-2026-013427,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00104,DQ-02,CS-2026-007130,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00105,DQ-02,CS-2026-015222,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00106,DQ-02,CS-2026-008793,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00107,DQ-02,CS-2026-013838,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00108,DQ-02,CS-2026-007517,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00109,DQ-02,CS-2026-008109,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00110,DQ-02,CS-2026-003546,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00111,DQ-02,CS-2026-013596,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00112,DQ-02,CS-2026-011605,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00113,DQ-02,CS-2026-010732,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00114,DQ-02,CS-2026-009682,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00115,DQ-02,CS-2026-013671,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00116,DQ-02,CS-2026-003328,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00117,DQ-02,CS-2026-013426,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00118,DQ-02,CS-2026-004303,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00119,DQ-02,CS-2026-006474,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00120,DQ-02,CS-2026-002105,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00121,DQ-02,CS-2026-014332,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00122,DQ-02,CS-2026-004187,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00123,DQ-02,CS-2026-012896,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00124,DQ-02,CS-2026-006209,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00125,DQ-02,CS-2026-004074,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00126,DQ-02,CS-2026-008196,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00127,DQ-02,CS-2026-003702,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00128,DQ-02,CS-2026-014213,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00129,DQ-02,CS-2026-004510,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00130,DQ-02,CS-2026-014709,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00131,DQ-02,CS-2026-001066,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00132,DQ-02,CS-2026-012892,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00133,DQ-02,CS-2026-002479,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00134,DQ-02,CS-2026-008242,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00135,DQ-02,CS-2026-012290,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00136,DQ-02,CS-2026-006597,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00137,DQ-02,CS-2026-000138,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00138,DQ-02,CS-2026-004449,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00139,DQ-02,CS-2026-009413,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00140,DQ-02,CS-2026-014631,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00141,DQ-02,CS-2026-000842,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00142,DQ-02,CS-2026-009548,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00143,DQ-02,CS-2026-010370,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00144,DQ-02,CS-2026-012166,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00145,DQ-02,CS-2026-005886,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00146,DQ-02,CS-2026-007227,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00147,DQ-02,CS-2026-012622,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00148,DQ-02,CS-2026-006566,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00149,DQ-02,CS-2026-004586,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00150,DQ-02,CS-2026-010631,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00151,DQ-02,CS-2026-008905,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00152,DQ-02,CS-2026-010044,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00153,DQ-02,CS-2026-014470,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00154,DQ-02,CS-2026-013580,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00155,DQ-02,CS-2026-010341,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00156,DQ-02,CS-2026-009229,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00157,DQ-02,CS-2026-010264,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00158,DQ-02,CS-2026-004892,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00159,DQ-02,CS-2026-007656,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00160,DQ-02,CS-2026-008925,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00161,DQ-02,CS-2026-014564,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00162,DQ-02,CS-2026-005162,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00163,DQ-02,CS-2026-009763,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00164,DQ-02,CS-2026-005717,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00165,DQ-02,CS-2026-007308,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00166,DQ-02,CS-2026-002629,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00167,DQ-02,CS-2026-011658,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00168,DQ-02,CS-2026-002902,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00169,DQ-02,CS-2026-001041,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00170,DQ-02,CS-2026-001423,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00171,DQ-02,CS-2026-006355,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00172,DQ-02,CS-2026-000806,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00173,DQ-02,CS-2026-015774,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00174,DQ-02,CS-2026-005384,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00175,DQ-02,CS-2026-003226,Low,Priority casing or whitespace did not match the standard.,"Normalized, record retained"
+EX-00176,DQ-03,CS-2026-001071,Critical,Unrecognized status 'ON HOLD - LEGAL'.,Excluded from reporting
+EX-00177,DQ-03,CS-2026-010418,Critical,Unrecognized status 'ON HOLD - LEGAL'.,Excluded from reporting
+EX-00178,DQ-03,CS-2026-000200,Critical,Unrecognized status 'ON HOLD - LEGAL'.,Excluded from reporting
+EX-00179,DQ-03,CS-2026-009418,Critical,Unrecognized status 'ON HOLD - LEGAL'.,Excluded from reporting
+EX-00180,DQ-03,CS-2026-000964,Critical,Unrecognized status 'ON HOLD - LEGAL'.,Excluded from reporting
+EX-00181,DQ-03,CS-2026-005149,Critical,Unrecognized status 'ON HOLD - LEGAL'.,Excluded from reporting
+EX-00182,DQ-03,CS-2026-011347,Critical,Unrecognized status 'ON HOLD - LEGAL'.,Excluded from reporting
+EX-00183,DQ-03,CS-2026-011696,Critical,Unrecognized status 'ON HOLD - LEGAL'.,Excluded from reporting
+EX-00184,DQ-03,CS-2026-001375,Critical,Unrecognized status 'ON HOLD - LEGAL'.,Excluded from reporting
+EX-00185,DQ-03,CS-2026-015429,Critical,Unrecognized status 'ON HOLD - LEGAL'.,Excluded from reporting
+EX-00186,DQ-03,CS-2026-008454,Critical,Unrecognized status 'ON HOLD - LEGAL'.,Excluded from reporting
+EX-00187,DQ-03,CS-2026-002794,Critical,Unrecognized status 'ON HOLD - LEGAL'.,Excluded from reporting
+EX-00188,DQ-03,CS-2026-009667,Critical,Unrecognized status 'ON HOLD - LEGAL'.,Excluded from reporting
+EX-00189,DQ-03,CS-2026-014010,Critical,Unrecognized status 'ON HOLD - LEGAL'.,Excluded from reporting
+EX-00190,DQ-03,CS-2026-009913,Critical,Unrecognized status 'ON HOLD - LEGAL'.,Excluded from reporting
+EX-00191,DQ-06,CS-2026-012961,Critical,Resolved_Date precedes Assigned_Date.,Excluded from reporting
+EX-00192,DQ-06,CS-2026-004574,Critical,Resolved_Date precedes Assigned_Date.,Excluded from reporting
+EX-00193,DQ-06,CS-2026-010054,Critical,Resolved_Date precedes Assigned_Date.,Excluded from reporting
+EX-00194,DQ-06,CS-2026-010679,Critical,Resolved_Date precedes Assigned_Date.,Excluded from reporting
+EX-00195,DQ-06,CS-2026-007716,Critical,Resolved_Date precedes Assigned_Date.,Excluded from reporting
+EX-00196,DQ-06,CS-2026-000221,Critical,Resolved_Date precedes Assigned_Date.,Excluded from reporting
+EX-00197,DQ-06,CS-2026-015769,Critical,Resolved_Date precedes Assigned_Date.,Excluded from reporting
+EX-00198,DQ-06,CS-2026-008675,Critical,Resolved_Date precedes Assigned_Date.,Excluded from reporting
+EX-00199,DQ-06,CS-2026-003316,Critical,Resolved_Date precedes Assigned_Date.,Excluded from reporting
+EX-00200,DQ-06,CS-2026-005513,Critical,Resolved_Date precedes Assigned_Date.,Excluded from reporting
+EX-00201,DQ-06,CS-2026-000365,Critical,Resolved_Date precedes Assigned_Date.,Excluded from reporting
+EX-00202,DQ-06,CS-2026-009877,Critical,Resolved_Date precedes Assigned_Date.,Excluded from reporting
+EX-00203,DQ-06,CS-2026-007500,Critical,Resolved_Date precedes Assigned_Date.,Excluded from reporting
+EX-00204,DQ-06,CS-2026-004432,Critical,Resolved_Date precedes Assigned_Date.,Excluded from reporting
+EX-00205,DQ-06,CS-2026-005730,Critical,Resolved_Date precedes Assigned_Date.,Excluded from reporting
+EX-00206,DQ-06,CS-2026-010615,Critical,Resolved_Date precedes Assigned_Date.,Excluded from reporting
+EX-00207,DQ-06,CS-2026-001824,Critical,Resolved_Date precedes Assigned_Date.,Excluded from reporting
+EX-00208,DQ-06,CS-2026-003183,Critical,Resolved_Date precedes Assigned_Date.,Excluded from reporting
+EX-00209,DQ-06,CS-2026-007660,Critical,Resolved_Date precedes Assigned_Date.,Excluded from reporting
+EX-00210,DQ-06,CS-2026-004008,Critical,Resolved_Date precedes Assigned_Date.,Excluded from reporting
+EX-00211,DQ-06,CS-2026-013255,Critical,Resolved_Date precedes Assigned_Date.,Excluded from reporting
+EX-00212,DQ-06,CS-2026-005456,Critical,Resolved_Date precedes Assigned_Date.,Excluded from reporting
+EX-00213,DQ-06,CS-2026-004966,Critical,Resolved_Date precedes Assigned_Date.,Excluded from reporting
+EX-00214,DQ-06,CS-2026-007824,Critical,Resolved_Date precedes Assigned_Date.,Excluded from reporting
+EX-00215,DQ-06,CS-2026-009019,Critical,Resolved_Date precedes Assigned_Date.,Excluded from reporting
+EX-00216,DQ-06,CS-2026-011373,Critical,Resolved_Date precedes Assigned_Date.,Excluded from reporting
+EX-00217,DQ-07,CS-2026-005017,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00218,DQ-07,CS-2026-014804,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00219,DQ-07,CS-2026-004407,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00220,DQ-07,CS-2026-015337,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00221,DQ-07,CS-2026-004263,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00222,DQ-07,CS-2026-003694,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00223,DQ-07,CS-2026-013489,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00224,DQ-07,CS-2026-013698,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00225,DQ-07,CS-2026-005973,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00226,DQ-07,CS-2026-014385,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00227,DQ-07,CS-2026-010046,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00228,DQ-07,CS-2026-008553,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00229,DQ-07,CS-2026-009096,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00230,DQ-07,CS-2026-013596,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00231,DQ-07,CS-2026-013199,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00232,DQ-07,CS-2026-012137,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00233,DQ-07,CS-2026-010935,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00234,DQ-07,CS-2026-003081,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00235,DQ-07,CS-2026-006129,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00236,DQ-07,CS-2026-009509,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00237,DQ-07,CS-2026-015188,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00238,DQ-07,CS-2026-015525,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00239,DQ-07,CS-2026-002358,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00240,DQ-07,CS-2026-015919,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00241,DQ-07,CS-2026-008698,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00242,DQ-07,CS-2026-000274,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00243,DQ-07,CS-2026-013223,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00244,DQ-07,CS-2026-010155,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00245,DQ-07,CS-2026-000626,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00246,DQ-07,CS-2026-014148,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00247,DQ-07,CS-2026-007400,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00248,DQ-07,CS-2026-006950,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00249,DQ-07,CS-2026-009123,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00250,DQ-07,CS-2026-000179,Critical,Status is Resolved but Resolved_Date is missing; SLA cannot be evaluated.,Excluded from reporting
+EX-00251,DQ-09,CS-2026-011169,Critical,Assigned_Team not found in team reference data.,Excluded from reporting
+EX-00252,DQ-09,CS-2026-007254,Critical,Assigned_Team not found in team reference data.,Excluded from reporting
+EX-00253,DQ-09,CS-2026-007895,Critical,Assigned_Team not found in team reference data.,Excluded from reporting
+EX-00254,DQ-09,CS-2026-011831,Critical,Assigned_Team not found in team reference data.,Excluded from reporting
+EX-00255,DQ-09,CS-2026-007415,Critical,Assigned_Team not found in team reference data.,Excluded from reporting
+EX-00256,DQ-09,CS-2026-007153,Critical,Assigned_Team not found in team reference data.,Excluded from reporting
+EX-00257,DQ-09,CS-2026-009663,Critical,Assigned_Team not found in team reference data.,Excluded from reporting
+EX-00258,DQ-09,CS-2026-009868,Critical,Assigned_Team not found in team reference data.,Excluded from reporting
+EX-00259,DQ-09,CS-2026-012423,Critical,Assigned_Team not found in team reference data.,Excluded from reporting
+EX-00260,DQ-09,CS-2026-007936,Critical,Assigned_Team not found in team reference data.,Excluded from reporting
+EX-00261,DQ-09,CS-2026-014600,Critical,Assigned_Team not found in team reference data.,Excluded from reporting
+EX-00262,DQ-09,CS-2026-014038,Critical,Assigned_Team not found in team reference data.,Excluded from reporting
+EX-00263,DQ-09,CS-2026-000506,Critical,Assigned_Team not found in team reference data.,Excluded from reporting
+EX-00264,DQ-09,CS-2026-006326,Critical,Assigned_Team not found in team reference data.,Excluded from reporting
+EX-00265,DQ-09,CS-2026-005471,Critical,Assigned_Team not found in team reference data.,Excluded from reporting
+EX-00266,DQ-09,CS-2026-004632,Critical,Assigned_Team not found in team reference data.,Excluded from reporting
+EX-00267,DQ-09,CS-2026-009719,Critical,Assigned_Team not found in team reference data.,Excluded from reporting
+EX-00268,DQ-12,CS-2026-010993,High,Reassignment_Count outside the valid range 0-6.,Set to null; excluded from routing accuracy
+EX-00269,DQ-12,CS-2026-014962,High,Reassignment_Count outside the valid range 0-6.,Set to null; excluded from routing accuracy
+EX-00270,DQ-12,CS-2026-006085,High,Reassignment_Count outside the valid range 0-6.,Set to null; excluded from routing accuracy
+EX-00271,DQ-12,CS-2026-002678,High,Reassignment_Count outside the valid range 0-6.,Set to null; excluded from routing accuracy
+EX-00272,DQ-12,CS-2026-011492,High,Reassignment_Count outside the valid range 0-6.,Set to null; excluded from routing accuracy
+EX-00273,DQ-12,CS-2026-013301,High,Reassignment_Count outside the valid range 0-6.,Set to null; excluded from routing accuracy
+EX-00274,DQ-12,CS-2026-004187,High,Reassignment_Count outside the valid range 0-6.,Set to null; excluded from routing accuracy
+EX-00275,DQ-12,CS-2026-002183,High,Reassignment_Count outside the valid range 0-6.,Set to null; excluded from routing accuracy
+EX-00276,DQ-12,CS-2026-009102,High,Reassignment_Count outside the valid range 0-6.,Set to null; excluded from routing accuracy
+EX-00277,DQ-12,CS-2026-010144,High,Reassignment_Count outside the valid range 0-6.,Set to null; excluded from routing accuracy
+EX-00278,DQ-12,CS-2026-002671,High,Reassignment_Count outside the valid range 0-6.,Set to null; excluded from routing accuracy
+EX-00279,DQ-12,CS-2026-001315,High,Reassignment_Count outside the valid range 0-6.,Set to null; excluded from routing accuracy
+EX-00280,DQ-13,CS-2026-010640,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00281,DQ-13,CS-2026-002286,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00282,DQ-13,CS-2026-002911,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00283,DQ-13,CS-2026-006968,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00284,DQ-13,CS-2026-002932,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00285,DQ-13,CS-2026-014261,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00286,DQ-13,CS-2026-015153,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00287,DQ-13,CS-2026-015975,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00288,DQ-13,CS-2026-010525,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00289,DQ-13,CS-2026-011704,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00290,DQ-13,CS-2026-010348,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00291,DQ-13,CS-2026-010488,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00292,DQ-13,CS-2026-013656,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00293,DQ-13,CS-2026-015585,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00294,DQ-13,CS-2026-010585,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00295,DQ-13,CS-2026-007307,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00296,DQ-13,CS-2026-001186,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00297,DQ-13,CS-2026-002783,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00298,DQ-13,CS-2026-015584,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00299,DQ-13,CS-2026-000348,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00300,DQ-13,CS-2026-015730,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00301,DQ-13,CS-2026-011323,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00302,DQ-13,CS-2026-013588,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00303,DQ-13,CS-2026-015021,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00304,DQ-13,CS-2026-004679,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00305,DQ-13,CS-2026-000343,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00306,DQ-13,CS-2026-010268,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00307,DQ-13,CS-2026-002109,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00308,DQ-13,CS-2026-011098,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00309,DQ-13,CS-2026-008355,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00310,DQ-13,CS-2026-001902,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00311,DQ-13,CS-2026-006152,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00312,DQ-13,CS-2026-002182,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00313,DQ-13,CS-2026-006385,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00314,DQ-13,CS-2026-003436,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00315,DQ-13,CS-2026-006004,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00316,DQ-13,CS-2026-002580,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00317,DQ-13,CS-2026-008519,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00318,DQ-13,CS-2026-010919,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00319,DQ-13,CS-2026-005351,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00320,DQ-13,CS-2026-011110,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00321,DQ-13,CS-2026-015019,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00322,DQ-13,CS-2026-006830,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00323,DQ-13,CS-2026-008552,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00324,DQ-13,CS-2026-015483,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00325,DQ-13,CS-2026-014426,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00326,DQ-13,CS-2026-014055,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00327,DQ-13,CS-2026-004408,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00328,DQ-13,CS-2026-006452,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00329,DQ-13,CS-2026-009769,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00330,DQ-13,CS-2026-008426,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00331,DQ-13,CS-2026-013451,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00332,DQ-13,CS-2026-001643,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00333,DQ-13,CS-2026-009808,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00334,DQ-13,CS-2026-012223,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00335,DQ-13,CS-2026-000384,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00336,DQ-13,CS-2026-003537,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00337,DQ-13,CS-2026-005836,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00338,DQ-13,CS-2026-015005,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00339,DQ-13,CS-2026-000207,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00340,DQ-13,CS-2026-014493,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00341,DQ-13,CS-2026-012617,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00342,DQ-13,CS-2026-006635,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00343,DQ-13,CS-2026-005394,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00344,DQ-13,CS-2026-011454,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00345,DQ-13,CS-2026-006909,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00346,DQ-13,CS-2026-007253,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00347,DQ-13,CS-2026-008252,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00348,DQ-13,CS-2026-006590,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00349,DQ-13,CS-2026-011313,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00350,DQ-13,CS-2026-005350,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00351,DQ-13,CS-2026-012760,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00352,DQ-13,CS-2026-006317,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00353,DQ-13,CS-2026-013044,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00354,DQ-13,CS-2026-010400,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00355,DQ-13,CS-2026-008338,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00356,DQ-13,CS-2026-000529,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00357,DQ-13,CS-2026-011179,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00358,DQ-13,CS-2026-014826,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00359,DQ-13,CS-2026-014106,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00360,DQ-13,CS-2026-006655,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00361,DQ-13,CS-2026-002105,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00362,DQ-13,CS-2026-014255,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00363,DQ-13,CS-2026-006845,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00364,DQ-13,CS-2026-002962,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00365,DQ-13,CS-2026-015025,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00366,DQ-13,CS-2026-007856,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00367,DQ-13,CS-2026-014244,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00368,DQ-13,CS-2026-013538,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00369,DQ-13,CS-2026-013227,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00370,DQ-13,CS-2026-003813,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00371,DQ-13,CS-2026-003909,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00372,DQ-13,CS-2026-011984,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00373,DQ-13,CS-2026-009950,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00374,DQ-13,CS-2026-002582,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00375,DQ-13,CS-2026-006910,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00376,DQ-13,CS-2026-008889,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00377,DQ-13,CS-2026-002188,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00378,DQ-13,CS-2026-014094,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00379,DQ-13,CS-2026-014841,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00380,DQ-13,CS-2026-014107,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00381,DQ-13,CS-2026-010491,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00382,DQ-13,CS-2026-004044,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00383,DQ-13,CS-2026-000482,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00384,DQ-13,CS-2026-007465,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00385,DQ-13,CS-2026-014050,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00386,DQ-13,CS-2026-008167,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00387,DQ-13,CS-2026-003178,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00388,DQ-13,CS-2026-004856,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00389,DQ-13,CS-2026-002133,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00390,DQ-13,CS-2026-011180,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00391,DQ-13,CS-2026-005338,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00392,DQ-13,CS-2026-005935,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00393,DQ-13,CS-2026-007473,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00394,DQ-13,CS-2026-015247,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00395,DQ-13,CS-2026-012512,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00396,DQ-13,CS-2026-000679,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00397,DQ-13,CS-2026-007394,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00398,DQ-13,CS-2026-007657,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00399,DQ-13,CS-2026-006045,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00400,DQ-13,CS-2026-001275,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00401,DQ-13,CS-2026-006786,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00402,DQ-13,CS-2026-005564,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00403,DQ-13,CS-2026-015049,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00404,DQ-13,CS-2026-015650,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00405,DQ-13,CS-2026-004025,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00406,DQ-13,CS-2026-008376,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00407,DQ-13,CS-2026-016000,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00408,DQ-13,CS-2026-009032,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00409,DQ-13,CS-2026-012862,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00410,DQ-13,CS-2026-012261,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00411,DQ-13,CS-2026-010876,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00412,DQ-13,CS-2026-005216,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00413,DQ-13,CS-2026-015566,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00414,DQ-13,CS-2026-011531,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00415,DQ-13,CS-2026-007811,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00416,DQ-13,CS-2026-012315,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00417,DQ-13,CS-2026-003823,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00418,DQ-13,CS-2026-011196,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00419,DQ-13,CS-2026-009499,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00420,DQ-13,CS-2026-010975,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00421,DQ-13,CS-2026-000278,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00422,DQ-13,CS-2026-002958,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00423,DQ-13,CS-2026-012285,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00424,DQ-13,CS-2026-005823,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00425,DQ-13,CS-2026-006564,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00426,DQ-13,CS-2026-003341,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00427,DQ-13,CS-2026-001358,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00428,DQ-13,CS-2026-010436,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00429,DQ-13,CS-2026-008526,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00430,DQ-13,CS-2026-011342,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00431,DQ-13,CS-2026-007954,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00432,DQ-13,CS-2026-015990,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00433,DQ-13,CS-2026-014151,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00434,DQ-13,CS-2026-001115,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00435,DQ-13,CS-2026-011858,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00436,DQ-13,CS-2026-003170,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00437,DQ-13,CS-2026-010929,Low,SLA_Met used a single-letter code instead of Yes/No.,"Normalized, record retained"
+EX-00438,DQ-14,CS-2026-009974,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00439,DQ-14,CS-2026-012169,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00440,DQ-14,CS-2026-009585,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00441,DQ-14,CS-2026-014052,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00442,DQ-14,CS-2026-008349,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00443,DQ-14,CS-2026-003696,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00444,DQ-14,CS-2026-009892,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00445,DQ-14,CS-2026-000980,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00446,DQ-14,CS-2026-015592,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00447,DQ-14,CS-2026-012139,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00448,DQ-14,CS-2026-015153,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00449,DQ-14,CS-2026-007069,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00450,DQ-14,CS-2026-010319,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00451,DQ-14,CS-2026-012673,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00452,DQ-14,CS-2026-009906,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00453,DQ-14,CS-2026-000275,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00454,DQ-14,CS-2026-015437,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00455,DQ-14,CS-2026-009608,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00456,DQ-14,CS-2026-002577,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00457,DQ-14,CS-2026-008055,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00458,DQ-14,CS-2026-008901,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00459,DQ-14,CS-2026-006107,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00460,DQ-14,CS-2026-003262,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00461,DQ-14,CS-2026-007507,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00462,DQ-14,CS-2026-008104,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00463,DQ-14,CS-2026-004611,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00464,DQ-14,CS-2026-001119,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00465,DQ-14,CS-2026-011759,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00466,DQ-14,CS-2026-003741,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00467,DQ-14,CS-2026-008284,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00468,DQ-14,CS-2026-006905,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00469,DQ-14,CS-2026-011904,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00470,DQ-14,CS-2026-014609,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00471,DQ-14,CS-2026-000437,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00472,DQ-14,CS-2026-008847,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00473,DQ-14,CS-2026-001870,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00474,DQ-14,CS-2026-012658,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00475,DQ-14,CS-2026-011617,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00476,DQ-14,CS-2026-011675,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00477,DQ-14,CS-2026-013804,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00478,DQ-14,CS-2026-001882,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00479,DQ-14,CS-2026-013172,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00480,DQ-14,CS-2026-008385,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00481,DQ-14,CS-2026-009208,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00482,DQ-14,CS-2026-007247,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00483,DQ-14,CS-2026-015755,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00484,DQ-14,CS-2026-009046,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00485,DQ-14,CS-2026-000723,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00486,DQ-14,CS-2026-006516,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00487,DQ-14,CS-2026-008125,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00488,DQ-14,CS-2026-012415,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00489,DQ-14,CS-2026-010826,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00490,DQ-14,CS-2026-007369,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00491,DQ-14,CS-2026-003906,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00492,DQ-14,CS-2026-013476,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00493,DQ-14,CS-2026-007773,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00494,DQ-14,CS-2026-001995,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00495,DQ-14,CS-2026-002317,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00496,DQ-14,CS-2026-012712,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00497,DQ-14,CS-2026-013322,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00498,DQ-14,CS-2026-015197,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00499,DQ-14,CS-2026-015680,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00500,DQ-14,CS-2026-009264,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00501,DQ-14,CS-2026-002939,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00502,DQ-14,CS-2026-002049,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00503,DQ-14,CS-2026-010081,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00504,DQ-14,CS-2026-008749,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00505,DQ-14,CS-2026-011135,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00506,DQ-14,CS-2026-007872,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00507,DQ-14,CS-2026-007890,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00508,DQ-14,CS-2026-012472,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00509,DQ-14,CS-2026-006766,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00510,DQ-14,CS-2026-004093,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00511,DQ-14,CS-2026-004298,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00512,DQ-14,CS-2026-015932,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00513,DQ-14,CS-2026-008474,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00514,DQ-14,CS-2026-008580,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00515,DQ-14,CS-2026-001782,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00516,DQ-14,CS-2026-010181,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00517,DQ-14,CS-2026-006067,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00518,DQ-14,CS-2026-005208,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00519,DQ-14,CS-2026-006832,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00520,DQ-14,CS-2026-001214,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00521,DQ-14,CS-2026-008139,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00522,DQ-14,CS-2026-010649,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00523,DQ-14,CS-2026-009404,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00524,DQ-14,CS-2026-004971,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00525,DQ-14,CS-2026-000852,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00526,DQ-14,CS-2026-008951,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00527,DQ-14,CS-2026-000183,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00528,DQ-14,CS-2026-012998,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00529,DQ-14,CS-2026-012109,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00530,DQ-14,CS-2026-010243,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00531,DQ-14,CS-2026-008418,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00532,DQ-14,CS-2026-000757,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00533,DQ-14,CS-2026-001903,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00534,DQ-14,CS-2026-001850,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00535,DQ-14,CS-2026-000111,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00536,DQ-14,CS-2026-006254,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00537,DQ-14,CS-2026-010945,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00538,DQ-14,CS-2026-010546,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00539,DQ-14,CS-2026-006457,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00540,DQ-14,CS-2026-012624,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00541,DQ-14,CS-2026-012050,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00542,DQ-14,CS-2026-002864,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00543,DQ-14,CS-2026-003681,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00544,DQ-14,CS-2026-013975,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00545,DQ-14,CS-2026-003124,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00546,DQ-14,CS-2026-006151,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00547,DQ-14,CS-2026-003791,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00548,DQ-14,CS-2026-001136,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00549,DQ-14,CS-2026-009060,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00550,DQ-14,CS-2026-013366,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00551,DQ-14,CS-2026-009074,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00552,DQ-14,CS-2026-010152,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00553,DQ-14,CS-2026-011394,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00554,DQ-14,CS-2026-011581,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00555,DQ-14,CS-2026-002171,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00556,DQ-14,CS-2026-014436,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00557,DQ-14,CS-2026-012704,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00558,DQ-14,CS-2026-008446,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00559,DQ-14,CS-2026-006090,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00560,DQ-14,CS-2026-005662,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00561,DQ-14,CS-2026-012952,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00562,DQ-14,CS-2026-004129,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00563,DQ-14,CS-2026-001358,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00564,DQ-14,CS-2026-011658,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00565,DQ-14,CS-2026-005465,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00566,DQ-14,CS-2026-013062,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00567,DQ-14,CS-2026-001565,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00568,DQ-14,CS-2026-000097,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00569,DQ-14,CS-2026-005411,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00570,DQ-14,CS-2026-015913,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00571,DQ-14,CS-2026-008884,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00572,DQ-14,CS-2026-011399,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00573,DQ-14,CS-2026-000784,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00574,DQ-14,CS-2026-011571,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00575,DQ-14,CS-2026-005750,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00576,DQ-14,CS-2026-003578,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
+EX-00577,DQ-14,CS-2026-007091,Medium,Root_Cause not recorded on a resolved case.,Set to Not Recorded
