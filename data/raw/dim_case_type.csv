@@ -1,0 +1,7 @@
+Case_Type,Base_Work_Hours,SLA_Target_Hours,Owning_Team
+Benefits Inquiry,3.5,48,TEAM-01
+Claims Dispute,6.0,72,TEAM-02
+Enrollment Change,2.5,24,TEAM-03
+Authorization Review,5.0,48,TEAM-04
+Billing Correction,4.0,72,TEAM-05
+Coverage Termination,7.5,96,TEAM-01

@@ -1,0 +1,6 @@
+Team_ID,Team_Name,Analyst_Count,Primary_Capability,Hours_Per_Analyst_Day
+TEAM-01,Case Team 01,9,Benefits,7.5
+TEAM-02,Case Team 02,7,Claims,7.5
+TEAM-03,Case Team 03,6,Enrollment,7.5
+TEAM-04,Case Team 04,5,Authorization,7.5
+TEAM-05,Case Team 05,8,Billing,7.5
